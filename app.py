@@ -313,7 +313,7 @@ if selected_chapter == "All Chapters / सभी अध्याय":
     SELECT id, exam, chapter, question, options, answer, solution, question_hi, options_hi, solution_hi, solution_ai, answer_ai 
     FROM questions 
     WHERE stage = ? AND subject = ?
-    ORDER BY id ASC
+    ORDER BY id DESC
     """
     cur.execute(query, (selected_stage, selected_subject))
 else:
@@ -321,7 +321,7 @@ else:
     SELECT id, exam, chapter, question, options, answer, solution, question_hi, options_hi, solution_hi, solution_ai, answer_ai 
     FROM questions 
     WHERE stage = ? AND subject = ? AND chapter = ?
-    ORDER BY id ASC
+    ORDER BY id DESC
     """
     cur.execute(query, (selected_stage, selected_subject, selected_chapter))
 
@@ -388,7 +388,40 @@ if extra_statements:
 safe_q = html.escape(str(display_q or ""))
 
 badge_exam = target_exam if target_exam != "All Bank Exams (Common Pool)" else "IBPS / SBI / RRB Common Pool"
-st.subheader(f"📖 {chap} | {badge_exam} (Q {st.session_state.q_index + 1} of {total_questions})")
+# Dynamic Exam, Year, and Stage extraction
+raw_ex = str(exam or '')
+raw_stg = str(selected_stage or '')
+
+# Extract year
+year_match = re.search(r'(20[1-2][0-9])', raw_ex)
+detected_year = year_match.group(1) if year_match else "2025"
+
+# Clean exam title
+ex_lower = raw_ex.lower()
+if "sbi po" in ex_lower:
+    exam_title = "SBI PO"
+elif "sbi clerk" in ex_lower:
+    exam_title = "SBI Clerk"
+elif "rrb po" in ex_lower or "officer scale" in ex_lower:
+    exam_title = "RRB PO"
+elif "rrb clerk" in ex_lower or "office assistant" in ex_lower:
+    exam_title = "RRB Clerk"
+elif "ibps clerk" in ex_lower:
+    exam_title = "IBPS Clerk"
+elif "ibps po" in ex_lower:
+    exam_title = "IBPS PO"
+else:
+    exam_title = target_exam if "All" not in target_exam else "IBPS PO"
+
+stage_tag = "Pre" if "pre" in raw_stg.lower() else "Mains"
+exam_badge = f"{exam_title} {detected_year} {stage_tag}"
+
+st.markdown(f'''
+<div style="display:flex; justify-content:space-between; align-items:center; background:#EFF6FF; border:1px solid #BFDBFE; padding:10px 16px; border-radius:8px; margin-bottom:12px;">
+    <span style="font-size:16px; font-weight:800; color:#1D4ED8;">🏛️ {exam_badge}</span>
+    <span style="font-size:13px; font-weight:600; color:#475569;">Topic: {chap} • Q {st.session_state.q_index + 1} / {total_questions}</span>
+</div>
+''', unsafe_allow_html=True)")
 st.markdown(f'<div class="question-box">{safe_q}</div>', unsafe_allow_html=True)
 
 user_choice = st.radio("Choose Option / विकल्प चुनें:", display_opts, key=f"ans_{qid}_{st.session_state.q_index}")
