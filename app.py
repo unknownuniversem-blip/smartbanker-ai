@@ -16,6 +16,8 @@ st.set_page_config(
 # 2. INJECT GOOGLE SEO META TAGS & STRUCTURED SCHEMA
 st.markdown("""
 <head>
+    <meta name="google-site-verification" content="kwVbUelR6vQiW3EYxdH_lRRouUw3HytRiV-CuF1Wsrw" />
+    <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE" />
     <meta name="description" content="Free online banking exam preparation portal for IBPS PO, IBPS Clerk, SBI PO, SBI Clerk, and RRB. Practice real memory-based questions with instant AI step-by-step derivations.">
     <meta name="keywords" content="SmartBanker AI, IBPS PO practice, SBI Clerk mock test, RRB PO reasoning puzzles, Quantitative Aptitude shortcuts, bank exam preparation, free CBT banking test">
     <meta name="author" content="SmartBanker AI">
