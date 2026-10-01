@@ -25,7 +25,6 @@ st.markdown("""
     <meta property="og:type" content="website">
 </head>
 
-<!-- Google Schema Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -179,7 +178,7 @@ if "view_mode" not in st.session_state:
     st.session_state.view_mode = "home"
 
 # ----------------------------------------------------
-# 1. FRONT / LANDING PAGE VIEW (OPTIMIZED FOR RANKING)
+# 1. FRONT / LANDING PAGE VIEW
 # ----------------------------------------------------
 if st.session_state.view_mode == "home":
     st.markdown("""
@@ -210,7 +209,7 @@ if st.session_state.view_mode == "home":
         st.markdown("""
         <div class="feature-card">
             <h3>📑 Real Memory-Based Papers</h3>
-            <p>100% verified question bank curated strictly by exam stage (Prelims vs Mains) across IBPS, SBI, and RRB exams.</p>
+            <p>100% verified question bank curated strictly by exam stage across IBPS, SBI, and RRB exams.</p>
         </div>
         """, unsafe_allow_html=True)
     with f_col2:
@@ -280,7 +279,7 @@ selected_subject = st.sidebar.selectbox("2. Select Subject / विषय", subj
 col_lang, _ = st.columns([1, 3])
 with col_lang:
     if selected_subject == "English Language":
-        st.info("ℹ️️ English Section is strictly in English.")
+        st.info("ℹ English Section is strictly in English.")
         lang = "English"
     else:
         lang = st.radio("🌐 Language / भाषा:", ["English", "हिन्दी"], horizontal=True)
@@ -308,6 +307,7 @@ with st.sidebar.expander("Send Platform Suggestion", expanded=False):
         else:
             st.warning("Please type a suggestion before submitting.")
 
+# Load newest first
 if selected_chapter == "All Chapters / सभी अध्याय":
     query = """
     SELECT id, exam, chapter, question, options, answer, solution, question_hi, options_hi, solution_hi, solution_ai, answer_ai 
@@ -387,16 +387,13 @@ if extra_statements:
 
 safe_q = html.escape(str(display_q or ""))
 
-badge_exam = target_exam if target_exam != "All Bank Exams (Common Pool)" else "IBPS / SBI / RRB Common Pool"
-# Dynamic Exam, Year, and Stage extraction
+# Extract clean Exam, Year, and Stage
 raw_ex = str(exam or '')
 raw_stg = str(selected_stage or '')
 
-# Extract year
-year_match = re.search(r'(20[1-2][0-9])', raw_ex)
-detected_year = year_match.group(1) if year_match else "2025"
+year_match = re.search(r'\b(20[1-2][0-9])\b', raw_ex)
+detected_year = year_match.group(1) if year_match else "2026"
 
-# Clean exam title
 ex_lower = raw_ex.lower()
 if "sbi po" in ex_lower:
     exam_title = "SBI PO"
@@ -416,12 +413,14 @@ else:
 stage_tag = "Pre" if "pre" in raw_stg.lower() else "Mains"
 exam_badge = f"{exam_title} {detected_year} {stage_tag}"
 
+# Prominent header banner
 st.markdown(f'''
 <div style="display:flex; justify-content:space-between; align-items:center; background:#EFF6FF; border:1px solid #BFDBFE; padding:10px 16px; border-radius:8px; margin-bottom:12px;">
     <span style="font-size:16px; font-weight:800; color:#1D4ED8;">🏛️ {exam_badge}</span>
     <span style="font-size:13px; font-weight:600; color:#475569;">Topic: {chap} • Q {st.session_state.q_index + 1} / {total_questions}</span>
 </div>
-''', unsafe_allow_html=True)")
+''', unsafe_allow_html=True)
+
 st.markdown(f'<div class="question-box">{safe_q}</div>', unsafe_allow_html=True)
 
 user_choice = st.radio("Choose Option / विकल्प चुनें:", display_opts, key=f"ans_{qid}_{st.session_state.q_index}")
@@ -443,7 +442,7 @@ def on_jump():
 bar_col1, bar_col2, bar_col3, bar_col4 = st.columns([1.5, 2.5, 1.5, 2.5])
 
 with bar_col1:
-    st.button("⬅️️ Previous", disabled=(st.session_state.q_index == 0), on_click=go_prev, use_container_width=True)
+    st.button("⬅ Previous", disabled=(st.session_state.q_index == 0), on_click=go_prev, use_container_width=True)
 
 with bar_col2:
     submit_clicked = st.button("Submit Answer / उत्तर जांचें", type="primary", use_container_width=True)
