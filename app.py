@@ -1,3 +1,4 @@
+import streamlit.components.v1 as components
 import streamlit as st
 import sqlite3
 import json
@@ -580,3 +581,17 @@ with st.expander("🚩 Report an Issue (Question / Solution / Options)", expande
         st.success("💖 Thank you for helping us refine SmartBanker AI! Your feedback has been recorded.")
 
 conn.close()
+
+
+# --- Typing App Cross-Promotion Banner ---
+components.html(
+    """
+    <div style="text-align: center; padding: 14px; background: #1e293b; border-radius: 10px; border: 1px solid #334155; margin: 15px 0;">
+        <span style="color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Recommended Practice Tool</span>
+        <a href="https://unknownuniversem-blip.github.io/typing-speed-finger-test/" target="_blank" style="color: #38bdf8; font-weight: 700; font-size: 16px; text-decoration: none; display: inline-block;">
+            ⌨️ Practice Typing & CBT Speed Test for Bank Exams →
+        </a>
+    </div>
+    """,
+    height=85
+)
