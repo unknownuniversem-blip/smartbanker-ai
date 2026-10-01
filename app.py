@@ -5,8 +5,45 @@ import html
 import re
 from datetime import datetime
 
-st.set_page_config(page_title="SmartBanker AI | Banking Exam Prep", layout="wide", initial_sidebar_state="auto")
+# 1. SEARCH ENGINE TITLE & METADATA
+st.set_page_config(
+    page_title="SmartBanker AI | Free IBPS, SBI, RRB PO & Clerk CBT Practice",
+    page_icon="🏦",
+    layout="wide",
+    initial_sidebar_state="auto"
+)
 
+# 2. INJECT GOOGLE SEO META TAGS & STRUCTURED SCHEMA
+st.markdown("""
+<head>
+    <meta name="description" content="Free online banking exam preparation portal for IBPS PO, IBPS Clerk, SBI PO, SBI Clerk, and RRB. Practice real memory-based questions with instant AI step-by-step derivations.">
+    <meta name="keywords" content="SmartBanker AI, IBPS PO practice, SBI Clerk mock test, RRB PO reasoning puzzles, Quantitative Aptitude shortcuts, bank exam preparation, free CBT banking test">
+    <meta name="author" content="SmartBanker AI">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SmartBanker AI | Banking Exam Preparation Engine">
+    <meta property="og:description" content="Practice authentic past year banking questions with instant AI step-by-step logic breakdown in English and Hindi.">
+    <meta property="og:type" content="website">
+</head>
+
+<!-- Google Schema Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SmartBanker AI",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "description": "Comprehensive CBT exam portal for IBPS, SBI, and RRB banking exams featuring step-by-step AI solutions.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  }
+}
+</script>
+""", unsafe_allow_html=True)
+
+# 3. CSS STYLING
 st.markdown("""
 <style>
     .hero-container {
@@ -45,6 +82,16 @@ st.markdown("""
         color: #555555;
         font-size: 14px;
         line-height: 1.5;
+    }
+    .seo-keyword-badge {
+        display: inline-block;
+        background-color: #E3F2FD;
+        color: #0D47A1;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 3px;
     }
     .question-box {
         font-size: 18px !important;
@@ -128,58 +175,67 @@ def init_reporting_tables():
 
 init_reporting_tables()
 
-# Session State for View Mode ('home' or 'practice')
 if "view_mode" not in st.session_state:
     st.session_state.view_mode = "home"
 
 # ----------------------------------------------------
-# 1. FRONT / LANDING PAGE VIEW
+# 1. FRONT / LANDING PAGE VIEW (OPTIMIZED FOR RANKING)
 # ----------------------------------------------------
 if st.session_state.view_mode == "home":
-    # Hero Section
     st.markdown("""
     <div class="hero-container">
-        <div class="hero-title">🏛️️ SmartBanker AI</div>
-        <div class="hero-subtitle">India's Premier AI-Augmented Practice Engine for Bank PO & Clerk Exams</div>
-        <p style="font-size: 15px; color: #BBDEFB;">Targeting: <b>IBPS PO/Clerk • SBI PO/Clerk • RRB PO/Clerk</b></p>
+        <h1 class="hero-title">🏛 SmartBanker AI</h1>
+        <p class="hero-subtitle">India's Free AI-Augmented CBT Practice Engine for Banking Aspirants</p>
+        <div style="margin-bottom: 18px;">
+            <span class="seo-keyword-badge">IBPS PO Prelims & Mains</span>
+            <span class="seo-keyword-badge">SBI PO / Clerk 2026</span>
+            <span class="seo-keyword-badge">RRB Officer Scale-I</span>
+            <span class="seo-keyword-badge">Quantitative Aptitude</span>
+            <span class="seo-keyword-badge">Reasoning Puzzles</span>
+            <span class="seo-keyword-badge">English Language</span>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Call-to-action button
     col_c1, col_c2, col_c3 = st.columns([1, 2, 1])
     with col_c2:
-        if st.button("🚀 Start CBT Practice Portal", type="primary", use_container_width=True):
+        if st.button("🚀 Start Free CBT Mock Practice", type="primary", use_container_width=True):
             st.session_state.view_mode = "practice"
             st.rerun()
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Feature Grid
     f_col1, f_col2, f_col3 = st.columns(3)
     with f_col1:
         st.markdown("""
         <div class="feature-card">
-            <h3>📑 Verified Memory Papers</h3>
-            <p>Sanitized, watermark-free past year papers categorized accurately into Prelims and Mains without overlapping syllabus errors.</p>
+            <h3>📑 Real Memory-Based Papers</h3>
+            <p>100% verified question bank curated strictly by exam stage (Prelims vs Mains) across IBPS, SBI, and RRB exams.</p>
         </div>
         """, unsafe_allow_html=True)
     with f_col2:
         st.markdown("""
         <div class="feature-card">
-            <h3>🤖 Real-Time AI Solving</h3>
-            <p>Step-by-step logic derivations for high-weightage Puzzles, DI sets, and Para Jumbles with zero unverified placeholder solutions.</p>
+            <h3>🤖 Step-by-Step AI Solutions</h3>
+            <p>Mathematical derivations for Quant, logical constraint mapping for Reasoning puzzles, and grammar breakdowns for English.</p>
         </div>
         """, unsafe_allow_html=True)
     with f_col3:
         st.markdown("""
         <div class="feature-card">
-            <h3>🌐 Bilingual Practice</h3>
-            <p>Seamless toggle between English and Hindi for Reasoning and Quant, featuring official CBT-style zero-scroll navigation.</p>
+            <h3>🎯 Official CBT Console</h3>
+            <p>Zero-scroll test interface matching real exam centers, featuring bilingual question toggles and zero page lag.</p>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("---")
-    st.caption("SmartBanker AI Platform • Built for Banking Aspirants • 2018–2026 Question Databank")
+    st.markdown("""
+    ### 📚 Free Comprehensive Banking Syllabus Coverage
+    * **Quantitative Aptitude**: Data Interpretation (DI), Arithmetic Word Problems, Quadratic Equations, Number Series, Simple & Compound Interest.
+    * **Reasoning Ability**: Floor & Flat Puzzles, Circular & Linear Seating Arrangements, Syllogisms, Inequalities, Direction & Distance.
+    * **English Language**: Reading Comprehension (RC), Para Jumbles, Cloze Test, Error Spotting, Sentence Improvement.
+    """)
+    st.caption("SmartBanker AI • Free Online Portal for IBPS, SBI, and RRB Banking Aspirants • 2018–2026 Exam Databank")
     st.stop()
 
 # ----------------------------------------------------
@@ -188,7 +244,6 @@ if st.session_state.view_mode == "home":
 conn = get_db()
 cur = conn.cursor()
 
-# Top Header with Home Return Button
 col_title, col_home = st.columns([4, 1])
 with col_title:
     st.title("🏦 SmartBanker AI")
@@ -198,7 +253,6 @@ with col_home:
         st.session_state.view_mode = "home"
         st.rerun()
 
-# 1. Target Exam Selection in Sidebar
 target_exam = st.sidebar.selectbox(
     "🎯 Target Banking Exam",
     [
@@ -213,7 +267,6 @@ target_exam = st.sidebar.selectbox(
     index=0
 )
 
-# 2. Stage Filter (Defaults to Prelims)
 available_stages = [r[0] for r in cur.execute("SELECT DISTINCT stage FROM questions WHERE stage IS NOT NULL").fetchall()]
 stages = ["Prelims"] + [s for s in sorted(available_stages) if s != "Prelims"] if "Prelims" in available_stages else available_stages
 if not stages:
@@ -221,20 +274,17 @@ if not stages:
 
 selected_stage = st.sidebar.selectbox("1. Select Stage / चरण", stages, index=0)
 
-# 3. Subject Filter
 subjects = [r[0] for r in cur.execute("SELECT DISTINCT subject FROM questions WHERE stage = ? AND subject IS NOT NULL ORDER BY subject", (selected_stage,)).fetchall()]
 selected_subject = st.sidebar.selectbox("2. Select Subject / विषय", subjects)
 
-# Bilingual Radio Toggle
 col_lang, _ = st.columns([1, 3])
 with col_lang:
     if selected_subject == "English Language":
-        st.info("ℹ️ English Section is strictly in English.")
+        st.info("ℹ️️ English Section is strictly in English.")
         lang = "English"
     else:
         lang = st.radio("🌐 Language / भाषा:", ["English", "हिन्दी"], horizontal=True)
 
-# 4. Chapter Filter
 chapters = [r[0] for r in cur.execute("SELECT DISTINCT chapter FROM questions WHERE stage = ? AND subject = ? AND chapter IS NOT NULL ORDER BY chapter", (selected_stage, selected_subject)).fetchall()]
 chapter_options = ["All Chapters / सभी अध्याय"] + chapters
 selected_chapter = st.sidebar.selectbox("3. Select Chapter / अध्याय", chapter_options)
@@ -243,7 +293,6 @@ st.sidebar.markdown("---")
 st.sidebar.subheader("🤖 AI Settings")
 api_key = st.sidebar.text_input("Gemini API Key (Optional)", type="password")
 
-# Suggestion Box
 st.sidebar.markdown("---")
 st.sidebar.subheader("💡 Suggestion Box")
 with st.sidebar.expander("Send Platform Suggestion", expanded=False):
@@ -259,7 +308,6 @@ with st.sidebar.expander("Send Platform Suggestion", expanded=False):
         else:
             st.warning("Please type a suggestion before submitting.")
 
-# Load Questions Query
 if selected_chapter == "All Chapters / सभी अध्याय":
     query = """
     SELECT id, exam, chapter, question, options, answer, solution, question_hi, options_hi, solution_hi, solution_ai, answer_ai 
@@ -286,7 +334,6 @@ if not questions:
     conn.close()
     st.stop()
 
-# State Tracking
 filter_key = f"{target_exam}_{selected_stage}_{selected_subject}_{selected_chapter}"
 if "last_filter" not in st.session_state or st.session_state.last_filter != filter_key:
     st.session_state.last_filter = filter_key
@@ -303,7 +350,6 @@ st.session_state.q_index = max(0, min(st.session_state.q_index, total_questions 
 q_data = questions[st.session_state.q_index]
 qid, exam, chap, q_en, opts_en, ans, sol_en, q_hi, opts_hi, sol_hi, sol_ai, ans_ai = q_data
 
-# Language logic
 if lang == "हिन्दी" and q_hi and selected_subject != "English Language":
     display_q = q_hi
     display_sol = sol_hi if sol_hi else sol_en
@@ -341,7 +387,6 @@ if extra_statements:
 
 safe_q = html.escape(str(display_q or ""))
 
-# Question Header and Text
 badge_exam = target_exam if target_exam != "All Bank Exams (Common Pool)" else "IBPS / SBI / RRB Common Pool"
 st.subheader(f"📖 {chap} | {badge_exam} (Q {st.session_state.q_index + 1} of {total_questions})")
 st.markdown(f'<div class="question-box">{safe_q}</div>', unsafe_allow_html=True)
@@ -350,7 +395,6 @@ user_choice = st.radio("Choose Option / विकल्प चुनें:", di
 
 effective_ans = ans if (ans and len(ans.strip()) > 0) else (ans_ai if ans_ai else "Option (B)")
 
-# CBT Navigation Row
 def go_prev():
     if st.session_state.q_index > 0:
         st.session_state.q_index -= 1
@@ -366,7 +410,7 @@ def on_jump():
 bar_col1, bar_col2, bar_col3, bar_col4 = st.columns([1.5, 2.5, 1.5, 2.5])
 
 with bar_col1:
-    st.button("⬅️ Previous", disabled=(st.session_state.q_index == 0), on_click=go_prev, use_container_width=True)
+    st.button("⬅️️ Previous", disabled=(st.session_state.q_index == 0), on_click=go_prev, use_container_width=True)
 
 with bar_col2:
     submit_clicked = st.button("Submit Answer / उत्तर जांचें", type="primary", use_container_width=True)
@@ -394,7 +438,6 @@ if submit_clicked:
 
 st.markdown("---")
 
-# Solutions Tabs
 tab_official, tab_ai = st.tabs(["📖 Official Source Answer", "🤖 SmartBanker AI Step-by-Step Explanation"])
 
 with tab_official:
@@ -467,7 +510,6 @@ with tab_ai:
     st.markdown(f'<div class="ai-step-box">{st.session_state.ai_cache[qid]}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# Report Issue Expander
 with st.expander("🚩 Report an Issue (Question / Solution / Options)", expanded=False):
     st.markdown("""
     <div class="quote-box">
