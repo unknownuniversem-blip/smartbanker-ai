@@ -12,17 +12,73 @@
       color: #f1f5f9;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
       min-height: 100vh;
-      padding: 20px 14px 80px;
+      margin: 0;
+      padding: 0 0 80px;
+    }
+    
+    /* Top Horizontal Slim Development Banner */
+    .top-dev-banner {
+      width: 100%;
+      background: #091122;
+      border-bottom: 1px solid #1e293b;
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+    .top-dev-banner .banner-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #facc15;
+      font-weight: 600;
+    }
+    .top-dev-banner .banner-right {
+      display: flex;
+      gap: 8px;
+    }
+    .top-dev-banner a {
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-speedmath {
+      background: #0284c7;
+      color: #fff;
+    }
+    .btn-speedmath:hover { background: #0369a1; }
+    .btn-alltools {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+    }
+    .btn-alltools:hover { background: #334155; }
+
+    .main-wrap {
+      width: 100%;
+      max-width: 980px;
+      padding: 20px 14px 0;
+      display: flex;
+      justify-content: center;
     }
     .card {
       background: #0f172a;
       border: 1px solid #1e293b;
       border-radius: 18px;
       padding: 24px;
-      max-width: 980px;
       width: 100%;
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
     }
@@ -93,7 +149,6 @@
       font-weight: 700;
     }
 
-    /* Question Palette (Testbook/Guidely style) */
     .palette-container {
       background: #0b1329;
       border: 1px solid #1e293b;
@@ -161,7 +216,6 @@
       font-weight: 600;
     }
 
-    /* Common Context / Passage / DI Block */
     .context-box {
       background: #091224;
       border-left: 4px solid #38bdf8;
@@ -248,73 +302,58 @@
 </head>
 <body>
 
-  <!-- Compact Development Notice -->
-  <div style="background: #0f172a; border-bottom: 1px solid #334155; padding: 6px 14px; font-size: 0.78rem; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-    <div style="display:flex; align-items:center; gap:6px; color:#facc15; font-weight:600;">
-      <span>⚠️</span> <span>Under Development: Questions being updated.</span>
+  <!-- Full-Width Horizontal Slim Notice Banner -->
+  <div class="top-dev-banner">
+    <div class="banner-left">
+      <span>⚠️</span>
+      <span>Under Development: PYQ solutions & sets being verified.</span>
     </div>
-    <div style="display:flex; gap:6px;">
-      <a href="https://unknownuniversem-blip.github.io/math/" target="_blank" style="background:#0284c7; color:#fff; text-decoration:none; padding:3px 10px; border-radius:4px; font-size:0.75rem; font-weight:700;">⚡ Speed Math</a>
-      <a href="https://unknownuniversem-blip.github.io/" target="_blank" style="background:#1e293b; color:#94a3b8; border:1px solid #334155; text-decoration:none; padding:3px 10px; border-radius:4px; font-size:0.75rem; font-weight:700;">🌐 All Tools</a>
-    </div>
-  </div>
-
-
-  <!-- Beta / Under Development Notice -->
-  <div style="background: linear-gradient(90deg, #1e1b4b, #0f172a); border-bottom: 2px solid #f59e0b; padding: 12px 20px; width: 100%; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-    <div style="max-width: 980px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="font-size: 1.2rem;">🚧</span>
-        <div>
-          <strong style="color: #fbbf24; font-size: 0.95rem; letter-spacing: 0.02em;">SmartBanker AI is currently Under Active Development</strong>
-          <p style="color: #94a3b8; font-size: 0.8rem; margin: 0;">Full question-bank verification & chapter additions in progress. Use our fully functional utilities below:</p>
-        </div>
-      </div>
-      <div style="display: flex; gap: 8px;">
-        <a href="https://unknownuniversem-blip.github.io/math/" target="_blank" style="background: #0284c7; color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">⚡ Speed Math Workout</a>
-        <a href="https://unknownuniversem-blip.github.io/" target="_blank" style="background: #334155; color: #f8fafc; text-decoration: none; padding: 6px 14px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">🌐 21+ Digital Suite</a>
-      </div>
+    <div class="banner-right">
+      <a href="https://unknownuniversem-blip.github.io/math/" target="_blank" class="btn-speedmath">⚡ Speed Math</a>
+      <a href="https://unknownuniversem-blip.github.io/" target="_blank" class="btn-alltools">🌐 All 20+ Tools</a>
     </div>
   </div>
 
-  <div class="card">
-    <div class="header-row">
-      <h1>🏦 SmartBanker AI</h1>
-      <div class="tier-toggle">
-        <button class="tier-btn active" id="btn-pre" onclick="setTier('prelims')">Prelims</button>
-        <button class="tier-btn" id="btn-mains" onclick="setTier('mains')">Mains</button>
-      </div>
-    </div>
-
-    <!-- Subject Selector -->
-    <div class="scroll-row" id="subject-list"></div>
-
-    <!-- Chapter Selector -->
-    <div class="scroll-row chapter-bar" id="chapter-list"></div>
-
-    <!-- 1-100 Question Palette Grid -->
-    <div class="palette-container" id="palette-grid"></div>
-
-    <!-- Quiz Question Area -->
-    <div class="quiz-box">
-      <div class="meta-top-bar">
-        <div class="exam-tag" id="exam-tag">
-          <span id="exam-name">IBPS PO</span>
-          <span class="exam-year" id="exam-year">2025</span>
+  <div class="main-wrap">
+    <div class="card">
+      <div class="header-row">
+        <h1>🏦 SmartBanker AI</h1>
+        <div class="tier-toggle">
+          <button class="tier-btn active" id="btn-pre" onclick="setTier('prelims')">Prelims</button>
+          <button class="tier-btn" id="btn-mains" onclick="setTier('mains')">Mains</button>
         </div>
-        <div class="q-counter" id="q-counter">Question 1 of 100</div>
       </div>
 
-      <div id="content-area">
-        <div id="context-box" class="context-box" style="display:none;"></div>
-        <div id="q-text" class="q-title">Loading Question...</div>
-        <div id="options-container"></div>
-        <div id="feedback" class="feedback"></div>
-      </div>
+      <!-- Subject Selector -->
+      <div class="scroll-row" id="subject-list"></div>
 
-      <div class="nav-btn-row">
-        <button id="prev-btn" class="nav-btn" onclick="prevQuestion()">← Previous Question</button>
-        <button id="next-btn" class="nav-btn" onclick="nextQuestion()">Next Question →</button>
+      <!-- Chapter Selector -->
+      <div class="scroll-row chapter-bar" id="chapter-list"></div>
+
+      <!-- 1-100 Question Palette Grid -->
+      <div class="palette-container" id="palette-grid"></div>
+
+      <!-- Quiz Question Area -->
+      <div class="quiz-box">
+        <div class="meta-top-bar">
+          <div class="exam-tag" id="exam-tag">
+            <span id="exam-name">IBPS PO</span>
+            <span class="exam-year" id="exam-year">2025</span>
+          </div>
+          <div class="q-counter" id="q-counter">Question 1 of 100</div>
+        </div>
+
+        <div id="content-area">
+          <div id="context-box" class="context-box" style="display:none;"></div>
+          <div id="q-text" class="q-title">Loading Question...</div>
+          <div id="options-container"></div>
+          <div id="feedback" class="feedback"></div>
+        </div>
+
+        <div class="nav-btn-row">
+          <button id="prev-btn" class="nav-btn" onclick="prevQuestion()">← Previous Question</button>
+          <button id="next-btn" class="nav-btn" onclick="nextQuestion()">Next Question →</button>
+        </div>
       </div>
     </div>
   </div>
