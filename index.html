@@ -3,101 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartBanker AI — Banking Awareness & Exam Practice</title>
+  <title>SmartBanker AI — Banking Exam Prep (Pre + Mains PYQs)</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #070c18; color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-    .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 16px; padding: 32px; max-width: 580px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-    .badge { display: inline-block; background: #0284c7; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 99px; margin-bottom: 12px; text-transform: uppercase; }
-    h1 { font-size: 1.8rem; margin-bottom: 8px; color: #fff; }
-    p.sub { color: #94a3b8; font-size: 0.95rem; margin-bottom: 24px; }
-    .quiz-box { background: #131d35; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-    .q-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: #f8fafc; line-height: 1.4; }
+    body { background: #070c18; color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 30px 16px 80px; }
+    .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 18px; padding: 28px; max-width: 780px; width: 100%; box-shadow: 0 12px 35px rgba(0,0,0,0.5); }
+    .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    h1 { font-size: 1.7rem; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .tier-toggle { display: flex; background: #070c18; padding: 4px; border-radius: 10px; border: 1px solid #1e293b; }
+    .tier-btn { padding: 6px 14px; font-size: 0.85rem; font-weight: 700; color: #94a3b8; background: transparent; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+    .tier-btn.active { background: #0284c7; color: #fff; }
+    
+    .subject-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 20px; scrollbar-width: thin; }
+    .sub-btn { white-space: nowrap; padding: 8px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #cbd5e1; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .sub-btn.active { background: #38bdf8; color: #070c18; border-color: #38bdf8; font-weight: 700; }
+    
+    .meta-status { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 0.85rem; color: #94a3b8; }
+    .quiz-box { background: #131d35; border: 1px solid #1e293b; border-radius: 14px; padding: 22px; }
+    .q-title { font-size: 1.05rem; font-weight: 600; color: #f8fafc; line-height: 1.5; margin-bottom: 18px; }
     .opt-btn { display: block; width: 100%; text-align: left; padding: 12px 16px; margin-bottom: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #e2e8f0; font-size: 0.95rem; cursor: pointer; transition: 0.2s; }
-    .opt-btn:hover { background: #334155; border-color: #38bdf8; }
-    .feedback { min-height: 24px; font-size: 0.95rem; font-weight: 600; margin-top: 12px; }
+    .opt-btn:hover { background: #27354f; border-color: #38bdf8; }
+    .feedback { min-height: 24px; font-size: 0.92rem; font-weight: 600; margin-top: 14px; line-height: 1.4; }
     .correct { color: #4ade80; }
     .incorrect { color: #f87171; }
-    .next-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #0284c7; color: white; font-size: 1rem; font-weight: 700; cursor: pointer; display: none; margin-top: 10px; }
-    .next-btn:hover { background: #0369a1; }
+    
+    .action-row { display: flex; gap: 10px; margin-top: 16px; }
+    .nav-btn { flex: 1; padding: 12px; border: none; border-radius: 8px; background: #0284c7; color: white; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: 0.2s; }
+    .nav-btn:hover { background: #0369a1; }
   </style>
 </head>
 <body>
   <div class="card">
-    <span class="badge">IBPS / SBI / RBI EXAM PREP</span>
-    <h1>🏦 SmartBanker AI</h1>
-    <p class="sub">High-yield banking awareness practice drills & questions.</p>
+    <div class="header-row">
+      <h1>🏦 SmartBanker AI</h1>
+      <div class="tier-toggle">
+        <button class="tier-btn active" id="btn-pre" onclick="setTier('pre')">Prelims</button>
+        <button class="tier-btn" id="btn-mains" onclick="setTier('mains')">Mains</button>
+      </div>
+    </div>
+
+    <!-- Subject Switcher -->
+    <div class="subject-bar" id="subject-list"></div>
+
+    <div class="meta-status">
+      <span id="tier-badge" style="color: #38bdf8; font-weight: 700;">PRELIMS PYQ ENGINE</span>
+      <span id="q-counter">Question 1 of 5</span>
+    </div>
 
     <div class="quiz-box">
       <div id="q-text" class="q-title">Loading Question...</div>
       <div id="options-container"></div>
       <div id="feedback" class="feedback"></div>
-      <button id="next-btn" class="next-btn" onclick="loadNextQuestion()">Next Question →</button>
+      <div class="action-row">
+        <button id="next-btn" class="nav-btn" style="display:none;" onclick="nextQuestion()">Next Question →</button>
+      </div>
     </div>
   </div>
 
   <script src="https://unknownuniversem-blip.github.io/network.js" defer></script>
   <script>
-    const QUESTIONS = [
-      {
-        q: "Which authority determines the Repo Rate and Reverse Repo Rate in India?",
-        opts: ["Securities and Exchange Board of India (SEBI)", "Monetary Policy Committee (MPC) of RBI", "Ministry of Finance", "Indian Banks' Association (IBA)"],
-        ans: 1,
-        exp: "The Monetary Policy Committee (MPC) of the Reserve Bank of India fixes the benchmark policy repo rate."
+    const BANKING_DATA = {
+      pre: {
+        "Quant (Aptitude)": [
+          {
+            q: "A train running at 54 km/h crosses a 250m long platform in 30 seconds. What is the length of the train?",
+            opts: ["150 meters", "200 meters", "225 meters", "180 meters"],
+            ans: 1,
+            exp: "Speed = 54 * (5/18) = 15 m/s. Total distance = 15 * 30 = 450m. Length of train = 450 - 250 = 200m."
+          },
+          {
+            q: "Find the missing number in the series: 4, 11, 30, 67, 128, ?",
+            opts: ["219", "222", "216", "230"],
+            ans: 0,
+            exp: "Pattern: n³ + 3. (1³+3=4, 2³+3=11, 3³+3=30, 4³+3=67, 5³+3=128, 6³+3=216+3=219)."
+          },
+          {
+            q: "A sum of ₹12,000 amounts to ₹15,870 in 2 years compounded annually. What is the rate of interest?",
+            opts: ["12%", "15%", "14%", "16%"],
+            ans: 1,
+            exp: "A/P = 15870 / 12000 = 1.3225. (1 + R/100)² = 1.3225 -> (1 + R/100) = 1.15. R = 15%."
+          }
+        ],
+        "Reasoning Ability": [
+          {
+            q: "Statements: All Pens are Pencils. No Pencil is Eraser. Conclusions: I. No Pen is Eraser. II. Some Pencils are Pens.",
+            opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
+            ans: 2,
+            exp: "Since all Pens are within Pencils, and no Pencil touches Eraser, no Pen can be Eraser. Also, since all Pens are Pencils, some Pencils must be Pens."
+          },
+          {
+            q: "In a certain code, 'BANKING' is coded as 'CBOLLOH'. How is 'OFFICER' coded in that system?",
+            opts: ["PGGJDFS", "PGGJDGS", "PGHJDFS", "PGGKEFS"],
+            ans: 0,
+            exp: "Every letter shifts forward by +1 position (B->C, A->B, N->O, K->L, I->L wait... O->P, F->G, F->G, I->J, C->D, E->F, R->S)."
+          }
+        ],
+        "English Language": [
+          {
+            q: "Identify the correctly spelled word used frequently in banking compliance:",
+            opts: ["Reconsilation", "Reconciliation", "Reconcilation", "Reconcialiation"],
+            ans: 1,
+            exp: "'Reconciliation' is the correct spelling, representing the process of matching balance accounts."
+          },
+          {
+            q: "Select the error segment: 'Neither the manager (A) nor the clerks (B) was present (C) during the audit (D).'",
+            opts: ["(A)", "(B)", "(C)", "(D)"],
+            ans: 2,
+            exp: "When using 'neither...nor', the verb agrees with the closer subject ('clerks' is plural, so it must be 'were present')."
+          }
+        ]
       },
-      {
-        q: "What does CTS stand for in banking clearance?",
-        opts: ["Central Transfer System", "Customer Transaction Settlement", "Cheque Truncation System", "Credit Tracking Service"],
-        ans: 2,
-        exp: "CTS stands for Cheque Truncation System, an online image-based cheque clearing mechanism."
-      },
-      {
-        q: "What is the maximum insurance coverage provided by DICGC per depositor per bank?",
-        opts: ["₹1,00,000", "₹2,00,000", "₹5,00,000", "₹10,00,000"],
-        ans: 2,
-        exp: "DICGC insures all bank deposits up to ₹5 Lakh per depositor per bank."
+      mains: {
+        "General / Banking Awareness": [
+          {
+            q: "What is the regulatory minimum Capital Conservation Buffer (CCB) prescribed by RBI under Basel III guidelines?",
+            opts: ["1.875%", "2.50%", "3.00%", "3.50%"],
+            ans: 1,
+            exp: "RBI mandates a CCB of 2.5% composed of Common Equity Tier 1 (CET1) capital."
+          },
+          {
+            q: "In the context of Priority Sector Lending (PSL), what is the target for domestic commercial banks as a % of ANBC?",
+            opts: ["32%", "40%", "45%", "50%"],
+            ans: 1,
+            exp: "Domestic commercial banks and foreign banks with 20+ branches must deploy 40% of Adjusted Net Bank Credit (ANBC) to priority sectors."
+          },
+          {
+            q: "Which regulatory body regulates the Credit Information Companies (like CIBIL, Experian, Equifax) in India?",
+            opts: ["SEBI", "Insolvency and Bankruptcy Board (IBBI)", "Reserve Bank of India (RBI)", "Ministry of Corporate Affairs"],
+            ans: 2,
+            exp: "RBI is the licensing and supervisory authority for Credit Information Companies under the CIC (Regulation) Act, 2005."
+          }
+        ],
+        "Data Analysis & Interpretation": [
+          {
+            q: "In an NPA recovery drive, Bank A recovers 35% of total written-off assets in Q1 and 40% of the remainder in Q2. What percentage remains unrecovered?",
+            opts: ["39%", "42%", "36%", "35%"],
+            ans: 0,
+            exp: "Let total be 100. Remaining after Q1 = 65. Recovered in Q2 = 40% of 65 = 26. Remaining = 65 - 26 = 39%."
+          }
+        ],
+        "Computer Aptitude": [
+          {
+            q: "In financial communication networks, what does the ISO 20022 messaging standard represent?",
+            opts: ["SWIFT electronic data interchange formatting", "ATM pin encryption algorithm", "Core Banking Database schema", "POS terminal bluetooth protocol"],
+            ans: 0,
+            exp: "ISO 20022 is the universal messaging framework standard adopted by SWIFT and global real-time payment systems."
+          }
+        ]
       }
-    ];
+    };
 
-    let currentIdx = 0;
-    function renderQuestion() {
-      const item = QUESTIONS[currentIdx];
-      document.getElementById('q-text').innerText = (currentIdx + 1) + ". " + item.q;
-      const optsBox = document.getElementById('options-container');
-      optsBox.innerHTML = '';
-      document.getElementById('feedback').innerText = '';
-      document.getElementById('next-btn').style.display = 'none';
+    let currentTier = 'pre';
+    let currentSubject = 'Quant (Aptitude)';
+    let currentQIdx = 0;
 
-      item.opts.forEach((opt, idx) => {
+    function setTier(tier) {
+      currentTier = tier;
+      document.getElementById('btn-pre').classList.toggle('active', tier === 'pre');
+      document.getElementById('btn-mains').classList.toggle('active', tier === 'mains');
+      document.getElementById('tier-badge').innerText = tier === 'pre' ? 'PRELIMS PYQ ENGINE' : 'MAINS ADVANCED ENGINE';
+      
+      const subjects = Object.keys(BANKING_DATA[currentTier]);
+      currentSubject = subjects[0];
+      renderSubjectTabs();
+      loadQuestion();
+    }
+
+    function renderSubjectTabs() {
+      const container = document.getElementById('subject-list');
+      container.innerHTML = '';
+      const subjects = Object.keys(BANKING_DATA[currentTier]);
+      
+      subjects.forEach(sub => {
         const btn = document.createElement('button');
-        btn.className = 'opt-btn';
-        btn.innerText = opt;
-        btn.onclick = () => selectAnswer(idx);
-        optsBox.appendChild(btn);
+        btn.className = 'sub-btn' + (sub === currentSubject ? ' active' : '');
+        btn.innerText = sub;
+        btn.onclick = () => {
+          currentSubject = sub;
+          currentQIdx = 0;
+          renderSubjectTabs();
+          loadQuestion();
+        };
+        container.appendChild(btn);
       });
     }
 
-    function selectAnswer(chosenIdx) {
-      const item = QUESTIONS[currentIdx];
+    function loadQuestion() {
+      const qList = BANKING_DATA[currentTier][currentSubject] || [];
+      const item = qList[currentQIdx];
+      
+      document.getElementById('q-counter').innerText = `Question ${currentQIdx + 1} of ${qList.length}`;
+      document.getElementById('feedback').innerText = '';
+      document.getElementById('next-btn').style.display = 'none';
+
+      if (!item) {
+        document.getElementById('q-text').innerText = "Questions loading for this section...";
+        document.getElementById('options-container').innerHTML = '';
+        return;
+      }
+
+      document.getElementById('q-text').innerText = `${currentQIdx + 1}. ${item.q}`;
+      const optsBox = document.getElementById('options-container');
+      optsBox.innerHTML = '';
+
+      item.opts.forEach((opt, idx) => {
+        const b = document.createElement('button');
+        b.className = 'opt-btn';
+        b.innerText = opt;
+        b.onclick = () => handleAnswer(idx);
+        optsBox.appendChild(b);
+      });
+    }
+
+    function handleAnswer(selected) {
+      const qList = BANKING_DATA[currentTier][currentSubject];
+      const item = qList[currentQIdx];
       document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
       const fb = document.getElementById('feedback');
-      if (chosenIdx === item.ans) {
+
+      if (selected === item.ans) {
         fb.className = 'feedback correct';
         fb.innerText = "✔ Correct! " + item.exp;
       } else {
         fb.className = 'feedback incorrect';
-        fb.innerText = "✖ Incorrect. " + item.exp;
+        fb.innerText = "✖ Incorrect. Solution: " + item.exp;
       }
-      document.getElementById('next-btn').style.display = 'block';
+      
+      if (currentQIdx < qList.length - 1) {
+        document.getElementById('next-btn').style.display = 'block';
+      }
     }
 
-    function loadNextQuestion() {
-      currentIdx = (currentIdx + 1) % QUESTIONS.length;
-      renderQuestion();
+    function nextQuestion() {
+      currentQIdx++;
+      loadQuestion();
     }
 
-    renderQuestion();
+    // Init
+    setTier('pre');
   </script>
 </body>
 </html>
