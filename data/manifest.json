@@ -1,299 +1,304 @@
 {
   "prelims": {
-    "Quant": [
+    "Quantitative Aptitude": [
       {
         "chapter": "Simplification & Approximation",
-        "file": "data/prelims/prelims_quant_simplification_and_approximation.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_simplification_approximation.json",
+        "count": 100
       },
       {
         "chapter": "Missing & Wrong Number Series",
-        "file": "data/prelims/prelims_quant_missing_and_wrong_number_series.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_missing_wrong_number_series.json",
+        "count": 100
       },
       {
         "chapter": "Quadratic Equations",
-        "file": "data/prelims/prelims_quant_quadratic_equations.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_quadratic_equations.json",
+        "count": 100
       },
       {
-        "chapter": "Data Interpretation (Table, Bar, Line, Pie)",
-        "file": "data/prelims/prelims_quant_data_interpretation_table_bar_line_pie.json",
-        "count": 50
+        "chapter": "Data Interpretation (Table & Bar)",
+        "file": "data/prelims/prelims_quantitative_aptitude_data_interpretation_table_bar.json",
+        "count": 100
+      },
+      {
+        "chapter": "Data Interpretation (Pie & Line)",
+        "file": "data/prelims/prelims_quantitative_aptitude_data_interpretation_pie_line.json",
+        "count": 100
       },
       {
         "chapter": "Arithmetic - Time & Work & Pipes",
-        "file": "data/prelims/prelims_quant_arithmetic_-_time_and_work_and_pipes.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_time_work_pipes.json",
+        "count": 100
       },
       {
-        "chapter": "Arithmetic - Speed, Time & Distance, Trains, Boats",
-        "file": "data/prelims/prelims_quant_arithmetic_-_speed_time_and_distance_trains_boats.json",
-        "count": 50
+        "chapter": "Arithmetic - Speed Time Distance & Trains",
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_speed_time_distance_trains.json",
+        "count": 100
       },
       {
-        "chapter": "Arithmetic - Profit, Loss & Discount",
-        "file": "data/prelims/prelims_quant_arithmetic_-_profit_loss_and_discount.json",
-        "count": 50
+        "chapter": "Arithmetic - Profit Loss & Discount",
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_profit_loss_discount.json",
+        "count": 100
       },
       {
         "chapter": "Arithmetic - Simple & Compound Interest",
-        "file": "data/prelims/prelims_quant_arithmetic_-_simple_and_compound_interest.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_simple_compound_interest.json",
+        "count": 100
       },
       {
-        "chapter": "Arithmetic - Ratio, Proportion & Partnership",
-        "file": "data/prelims/prelims_quant_arithmetic_-_ratio_proportion_and_partnership.json",
-        "count": 50
+        "chapter": "Arithmetic - Ratio Proportion & Partnership",
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_ratio_proportion_partnership.json",
+        "count": 100
       },
       {
         "chapter": "Arithmetic - Mixtures & Alligations",
-        "file": "data/prelims/prelims_quant_arithmetic_-_mixtures_and_alligations.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_mixtures_alligations.json",
+        "count": 100
       },
       {
         "chapter": "Arithmetic - Ages & Averages",
-        "file": "data/prelims/prelims_quant_arithmetic_-_ages_and_averages.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_ages_averages.json",
+        "count": 100
       },
       {
         "chapter": "Arithmetic - Mensuration (2D & 3D)",
-        "file": "data/prelims/prelims_quant_arithmetic_-_mensuration_2d_and_3d.json",
-        "count": 50
+        "file": "data/prelims/prelims_quantitative_aptitude_arithmetic_mensuration_2d_3d.json",
+        "count": 100
       }
     ],
-    "Reasoning": [
+    "Reasoning Ability": [
       {
         "chapter": "Syllogism (Only a Few & Possibility)",
-        "file": "data/prelims/prelims_reasoning_syllogism_only_a_few_and_possibility.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_syllogism_only_a_few_possibility.json",
+        "count": 100
       },
       {
         "chapter": "Inequalities (Direct & Coded)",
-        "file": "data/prelims/prelims_reasoning_inequalities_direct_and_coded.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_inequalities_direct_coded.json",
+        "count": 100
       },
       {
         "chapter": "Circular Seating Arrangement",
-        "file": "data/prelims/prelims_reasoning_circular_seating_arrangement.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_circular_seating_arrangement.json",
+        "count": 100
       },
       {
-        "chapter": "Linear Seating (Single & Parallel Rows)",
-        "file": "data/prelims/prelims_reasoning_linear_seating_single_and_parallel_rows.json",
-        "count": 50
+        "chapter": "Linear Seating (Single & Parallel)",
+        "file": "data/prelims/prelims_reasoning_ability_linear_seating_single_parallel.json",
+        "count": 100
       },
       {
         "chapter": "Floor & Flat Puzzles",
-        "file": "data/prelims/prelims_reasoning_floor_and_flat_puzzles.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_floor_flat_puzzles.json",
+        "count": 100
       },
       {
         "chapter": "Box & Stack Puzzles",
-        "file": "data/prelims/prelims_reasoning_box_and_stack_puzzles.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_box_stack_puzzles.json",
+        "count": 100
       },
       {
-        "chapter": "Day, Month & Year Puzzles",
-        "file": "data/prelims/prelims_reasoning_day_month_and_year_puzzles.json",
-        "count": 50
+        "chapter": "Day Month & Year Puzzles",
+        "file": "data/prelims/prelims_reasoning_ability_day_month_year_puzzles.json",
+        "count": 100
       },
       {
-        "chapter": "Blood Relations (Coded & Puzzle)",
-        "file": "data/prelims/prelims_reasoning_blood_relations_coded_and_puzzle.json",
-        "count": 50
+        "chapter": "Blood Relations (Coded & Family Tree)",
+        "file": "data/prelims/prelims_reasoning_ability_blood_relations_coded_family_tree.json",
+        "count": 100
       },
       {
         "chapter": "Direction Sense & Shortest Distance",
-        "file": "data/prelims/prelims_reasoning_direction_sense_and_shortest_distance.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_direction_sense_shortest_distance.json",
+        "count": 100
       },
       {
         "chapter": "Coding-Decoding (Chinese & New Pattern)",
-        "file": "data/prelims/prelims_reasoning_coding-decoding_chinese_and_new_pattern.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_coding_decoding_chinese_new_pattern.json",
+        "count": 100
       },
       {
         "chapter": "Alphanumeric & Number Series",
-        "file": "data/prelims/prelims_reasoning_alphanumeric_and_number_series.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_alphanumeric_number_series.json",
+        "count": 100
       },
       {
         "chapter": "Order & Ranking",
-        "file": "data/prelims/prelims_reasoning_order_and_ranking.json",
-        "count": 50
+        "file": "data/prelims/prelims_reasoning_ability_order_ranking.json",
+        "count": 100
       }
     ],
-    "English": [
+    "English Language": [
       {
-        "chapter": "Reading Comprehension (Economy & Banking)",
-        "file": "data/prelims/prelims_english_reading_comprehension_economy_and_banking.json",
-        "count": 50
+        "chapter": "Reading Comprehension (Banking & Economy)",
+        "file": "data/prelims/prelims_english_language_reading_comprehension_banking_economy.json",
+        "count": 100
       },
       {
-        "chapter": "Cloze Test (New Pattern)",
-        "file": "data/prelims/prelims_english_cloze_test_new_pattern.json",
-        "count": 50
+        "chapter": "Cloze Test (Contextual & Vocab)",
+        "file": "data/prelims/prelims_english_language_cloze_test_contextual_vocab.json",
+        "count": 100
       },
       {
-        "chapter": "Error Spotting & Sentence Correction",
-        "file": "data/prelims/prelims_english_error_spotting_and_sentence_correction.json",
-        "count": 50
+        "chapter": "Error Spotting & Grammatical Rules",
+        "file": "data/prelims/prelims_english_language_error_spotting_grammatical_rules.json",
+        "count": 100
       },
       {
-        "chapter": "Para Jumbles (Sentence Rearrangement)",
-        "file": "data/prelims/prelims_english_para_jumbles_sentence_rearrangement.json",
-        "count": 50
+        "chapter": "Sentence Rearrangement & Para Jumbles",
+        "file": "data/prelims/prelims_english_language_sentence_rearrangement_para_jumbles.json",
+        "count": 100
       },
       {
         "chapter": "Fillers (Single, Double & Column Based)",
-        "file": "data/prelims/prelims_english_fillers_single_double_and_column_based.json",
-        "count": 50
+        "file": "data/prelims/prelims_english_language_fillers_single_double_column_based.json",
+        "count": 100
       },
       {
         "chapter": "Phrase Replacement & Idioms",
-        "file": "data/prelims/prelims_english_phrase_replacement_and_idioms.json",
-        "count": 50
+        "file": "data/prelims/prelims_english_language_phrase_replacement_idioms.json",
+        "count": 100
       },
       {
         "chapter": "Word Swap & Misspelt Words",
-        "file": "data/prelims/prelims_english_word_swap_and_misspelt_words.json",
-        "count": 50
+        "file": "data/prelims/prelims_english_language_word_swap_misspelt_words.json",
+        "count": 100
       }
     ]
   },
   "mains": {
-    "Banking & Economy": [
+    "Banking & Financial Awareness": [
       {
-        "chapter": "Monetary Policy & RBI Framework",
-        "file": "data/mains/mains_banking_and_economy_monetary_policy_and_rbi_framework.json",
-        "count": 50
+        "chapter": "Monetary Policy & RBI Benchmark Rates",
+        "file": "data/mains/mains_banking_financial_awareness_monetary_policy_rbi_benchmark_rates.json",
+        "count": 100
       },
       {
-        "chapter": "Priority Sector Lending (PSL) & Targets",
-        "file": "data/mains/mains_banking_and_economy_priority_sector_lending_psl_and_targets.json",
-        "count": 50
+        "chapter": "Priority Sector Lending (PSL) & Revised Targets",
+        "file": "data/mains/mains_banking_financial_awareness_priority_sector_lending_psl_revised_targets.json",
+        "count": 100
       },
       {
-        "chapter": "Regulatory Framework (BR Act, RBI Act, SARFAESI)",
-        "file": "data/mains/mains_banking_and_economy_regulatory_framework_br_act_rbi_act_sarfaesi.json",
-        "count": 50
+        "chapter": "Regulatory Acts (BR Act, RBI Act, SARFAESI)",
+        "file": "data/mains/mains_banking_financial_awareness_regulatory_acts_br_act_rbi_act_sarfaesi.json",
+        "count": 100
       },
       {
-        "chapter": "Basel III Norms & Capital Adequacy",
-        "file": "data/mains/mains_banking_and_economy_basel_iii_norms_and_capital_adequacy.json",
-        "count": 50
+        "chapter": "Basel III Norms & Capital Adequacy (CRAR)",
+        "file": "data/mains/mains_banking_financial_awareness_basel_iii_norms_capital_adequacy_crar.json",
+        "count": 100
       },
       {
-        "chapter": "NPA Management & IBC 2016",
-        "file": "data/mains/mains_banking_and_economy_npa_management_and_ibc_2016.json",
-        "count": 50
+        "chapter": "NPA Classification & Insolvency (IBC 2016)",
+        "file": "data/mains/mains_banking_financial_awareness_npa_classification_insolvency_ibc_2016.json",
+        "count": 100
       },
       {
-        "chapter": "Money Market & Capital Market Instruments",
-        "file": "data/mains/mains_banking_and_economy_money_market_and_capital_market_instruments.json",
-        "count": 50
+        "chapter": "Money Market & Debt Instruments (CP, CD, T-Bills)",
+        "file": "data/mains/mains_banking_financial_awareness_money_market_debt_instruments_cp_cd_t_bills.json",
+        "count": 100
       },
       {
         "chapter": "Digital Payments & Fintech (UPI, NEFT, RTGS, CBDC)",
-        "file": "data/mains/mains_banking_and_economy_digital_payments_and_fintech_upi_neft_rtgs_cbdc.json",
-        "count": 50
+        "file": "data/mains/mains_banking_financial_awareness_digital_payments_fintech_upi_neft_rtgs_cbdc.json",
+        "count": 100
       },
       {
-        "chapter": "Government Schemes (PMJDY, PMSBY, PMJJBY, APY)",
-        "file": "data/mains/mains_banking_and_economy_government_schemes_pmjdy_pmsby_pmjjby_apy.json",
-        "count": 50
+        "chapter": "Government Welfare Schemes (PMJDY, PMSBY, APY)",
+        "file": "data/mains/mains_banking_financial_awareness_government_welfare_schemes_pmjdy_pmsby_apy.json",
+        "count": 100
       },
       {
-        "chapter": "International Financial Institutions (IMF, WB, ADB, NDB)",
-        "file": "data/mains/mains_banking_and_economy_international_financial_institutions_imf_wb_adb_ndb.json",
-        "count": 50
+        "chapter": "International Financial Institutions (IMF, WB, ADB)",
+        "file": "data/mains/mains_banking_financial_awareness_international_financial_institutions_imf_wb_adb.json",
+        "count": 100
       },
       {
-        "chapter": "Recent Banking Committees & RBI Circulars",
-        "file": "data/mains/mains_banking_and_economy_recent_banking_committees_and_rbi_circulars.json",
-        "count": 50
+        "chapter": "Recent Banking Committees & RBI Notifications",
+        "file": "data/mains/mains_banking_financial_awareness_recent_banking_committees_rbi_notifications.json",
+        "count": 100
       }
     ],
-    "Advanced DI": [
+    "Data Analysis & Interpretation": [
       {
-        "chapter": "Caselet & Arithmetic DI",
-        "file": "data/mains/mains_advanced_di_caselet_and_arithmetic_di.json",
-        "count": 50
+        "chapter": "Caselet DI & Equation-Based Problems",
+        "file": "data/mains/mains_data_analysis_interpretation_caselet_di_equation_based_problems.json",
+        "count": 100
       },
       {
-        "chapter": "Radar & Funnel DI",
-        "file": "data/mains/mains_advanced_di_radar_and_funnel_di.json",
-        "count": 50
+        "chapter": "Radar & Funnel DI Charts",
+        "file": "data/mains/mains_data_analysis_interpretation_radar_funnel_di_charts.json",
+        "count": 100
       },
       {
-        "chapter": "Missing Value & Scatter DI",
-        "file": "data/mains/mains_advanced_di_missing_value_and_scatter_di.json",
-        "count": 50
+        "chapter": "Missing Value Tables & Scatter Plots",
+        "file": "data/mains/mains_data_analysis_interpretation_missing_value_tables_scatter_plots.json",
+        "count": 100
       },
       {
-        "chapter": "Probability & Permutation DI",
-        "file": "data/mains/mains_advanced_di_probability_and_permutation_di.json",
-        "count": 50
+        "chapter": "Probability & Permutation-Combination DI",
+        "file": "data/mains/mains_data_analysis_interpretation_probability_permutation_combination_di.json",
+        "count": 100
       },
       {
-        "chapter": "Logical & Games DI",
-        "file": "data/mains/mains_advanced_di_logical_and_games_di.json",
-        "count": 50
+        "chapter": "Logical DI & High-Level Arithmetic Sets",
+        "file": "data/mains/mains_data_analysis_interpretation_logical_di_high_level_arithmetic_sets.json",
+        "count": 100
       }
     ],
-    "Critical Reasoning": [
+    "Critical & Analytical Reasoning": [
       {
         "chapter": "Statement & Assumptions",
-        "file": "data/mains/mains_critical_reasoning_statement_and_assumptions.json",
-        "count": 50
+        "file": "data/mains/mains_critical_analytical_reasoning_statement_assumptions.json",
+        "count": 100
       },
       {
-        "chapter": "Statement & Arguments (Strong/Weak)",
-        "file": "data/mains/mains_critical_reasoning_statement_and_arguments_strong_weak.json",
-        "count": 50
+        "chapter": "Statement & Arguments (Strong vs Weak)",
+        "file": "data/mains/mains_critical_analytical_reasoning_statement_arguments_strong_vs_weak.json",
+        "count": 100
       },
       {
-        "chapter": "Cause & Effect",
-        "file": "data/mains/mains_critical_reasoning_cause_and_effect.json",
-        "count": 50
+        "chapter": "Cause & Effect Analysis",
+        "file": "data/mains/mains_critical_analytical_reasoning_cause_effect_analysis.json",
+        "count": 100
       },
       {
         "chapter": "Course of Action",
-        "file": "data/mains/mains_critical_reasoning_course_of_action.json",
-        "count": 50
+        "file": "data/mains/mains_critical_analytical_reasoning_course_of_action.json",
+        "count": 100
       },
       {
-        "chapter": "Drawing Inferences & Conclusions",
-        "file": "data/mains/mains_critical_reasoning_drawing_inferences_and_conclusions.json",
-        "count": 50
+        "chapter": "Drawing Inferences & Deductions",
+        "file": "data/mains/mains_critical_analytical_reasoning_drawing_inferences_deductions.json",
+        "count": 100
       }
     ],
     "Computer Aptitude": [
       {
-        "chapter": "Networking Models (OSI, TCP/IP, Protocols)",
-        "file": "data/mains/mains_computer_aptitude_networking_models_osi_tcp_ip_protocols.json",
-        "count": 50
+        "chapter": "Network Topologies & OSI Protocol Stack",
+        "file": "data/mains/mains_computer_aptitude_network_topologies_osi_protocol_stack.json",
+        "count": 100
       },
       {
-        "chapter": "Cybersecurity & Banking Malware",
-        "file": "data/mains/mains_computer_aptitude_cybersecurity_and_banking_malware.json",
-        "count": 50
+        "chapter": "Cybersecurity, Encryption & Banking Threats",
+        "file": "data/mains/mains_computer_aptitude_cybersecurity_encryption_banking_threats.json",
+        "count": 100
       },
       {
-        "chapter": "Database Management Systems & SQL",
-        "file": "data/mains/mains_computer_aptitude_database_management_systems_and_sql.json",
-        "count": 50
+        "chapter": "DBMS Architecture & SQL Queries",
+        "file": "data/mains/mains_computer_aptitude_dbms_architecture_sql_queries.json",
+        "count": 100
       },
       {
-        "chapter": "Computer Architecture & Memory Types",
-        "file": "data/mains/mains_computer_aptitude_computer_architecture_and_memory_types.json",
-        "count": 50
+        "chapter": "Core Banking Software (Finacle, BaNCS) & Cloud",
+        "file": "data/mains/mains_computer_aptitude_core_banking_software_finacle_bancs_cloud.json",
+        "count": 100
       },
       {
-        "chapter": "Shortcuts, MS Office & File Extensions",
-        "file": "data/mains/mains_computer_aptitude_shortcuts_ms_office_and_file_extensions.json",
-        "count": 50
+        "chapter": "Operating Systems & Command Line Utilities",
+        "file": "data/mains/mains_computer_aptitude_operating_systems_command_line_utilities.json",
+        "count": 100
       }
     ]
   }
