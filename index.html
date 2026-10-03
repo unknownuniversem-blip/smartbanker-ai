@@ -27,7 +27,7 @@
   <div class="card">
     <span class="badge">IBPS / SBI / RBI EXAM PREP</span>
     <h1>🏦 SmartBanker AI</h1>
-    <p class="sub">Dynamic high-yield banking awareness drills and terminology practice.</p>
+    <p class="sub">High-yield banking awareness practice drills & questions.</p>
 
     <div class="quiz-box">
       <div id="q-text" class="q-title">Loading Question...</div>
@@ -44,30 +44,23 @@
         q: "Which authority determines the Repo Rate and Reverse Repo Rate in India?",
         opts: ["Securities and Exchange Board of India (SEBI)", "Monetary Policy Committee (MPC) of RBI", "Ministry of Finance", "Indian Banks' Association (IBA)"],
         ans: 1,
-        exp: "The Monetary Policy Committee (MPC) of the Reserve Bank of India fixes the benchmark policy rates."
+        exp: "The Monetary Policy Committee (MPC) of the Reserve Bank of India fixes the benchmark policy repo rate."
       },
       {
-        q: "What does the letter 'C' stand for in CTS in banking clearance?",
-        opts: ["Central", "Customer", "Cheque", "Credit"],
+        q: "What does CTS stand for in banking clearance?",
+        opts: ["Central Transfer System", "Customer Transaction Settlement", "Cheque Truncation System", "Credit Tracking Service"],
         ans: 2,
-        exp: "CTS stands for Cheque Truncation System, an image-based cheque clearing mechanism."
+        exp: "CTS stands for Cheque Truncation System, an online image-based cheque clearing mechanism."
       },
       {
         q: "What is the maximum insurance coverage provided by DICGC per depositor per bank?",
         opts: ["₹1,00,000", "₹2,00,000", "₹5,00,000", "₹10,00,000"],
         ans: 2,
-        exp: "DICGC insures all bank deposits up to ₹5 Lakh per depositor per bank (principal + interest)."
-      },
-      {
-        q: "Prompt Corrective Action (PCA) framework is applied by RBI to monitor what?",
-        opts: ["Stock brokers", "Commercial banks with weak financials", "Mutual fund schemes", "Microfinance institutions only"],
-        ans: 1,
-        exp: "RBI applies PCA to banks breaching minimum capital adequacy, high NPAs, or poor return on assets."
+        exp: "DICGC insures all bank deposits up to ₹5 Lakh per depositor per bank."
       }
     ];
 
     let currentIdx = 0;
-
     function renderQuestion() {
       const item = QUESTIONS[currentIdx];
       document.getElementById('q-text').innerText = (currentIdx + 1) + ". " + item.q;
@@ -87,9 +80,7 @@
 
     function selectAnswer(chosenIdx) {
       const item = QUESTIONS[currentIdx];
-      const buttons = document.querySelectorAll('.opt-btn');
-      buttons.forEach(b => b.disabled = true);
-
+      document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
       const fb = document.getElementById('feedback');
       if (chosenIdx === item.ans) {
         fb.className = 'feedback correct';
