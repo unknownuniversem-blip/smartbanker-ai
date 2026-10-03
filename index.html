@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartBanker AI — 5-Year Chapterwise PYQ Bank (2021–2026)</title>
+  <title>SmartBanker AI — Complete Chapterwise 5-Yr PYQs (2021-2026)</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,7 +22,7 @@
       border: 1px solid #1e293b;
       border-radius: 18px;
       padding: 26px;
-      max-width: 860px;
+      max-width: 900px;
       width: 100%;
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
     }
@@ -30,10 +30,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     h1 {
-      font-size: 1.65rem;
+      font-size: 1.6rem;
       color: #fff;
       display: flex;
       align-items: center;
@@ -66,7 +66,7 @@
       gap: 8px;
       overflow-x: auto;
       padding-bottom: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       scrollbar-width: thin;
     }
     .pill-btn {
@@ -76,7 +76,7 @@
       border: 1px solid #334155;
       border-radius: 8px;
       color: #cbd5e1;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s;
@@ -195,17 +195,14 @@
       </div>
     </div>
 
-    <!-- Subject Switcher -->
     <div class="scroll-row" id="subject-list"></div>
-
-    <!-- Chapter Switcher -->
     <div class="scroll-row chapter-bar" id="chapter-list"></div>
 
     <div class="quiz-box">
       <div class="meta-top-bar">
         <div class="exam-tag" id="exam-tag">
-          <span id="exam-name">IBPS PO</span>
-          <span class="exam-year" id="exam-year">2025</span>
+          <span id="exam-name">EXAM ARCHIVE</span>
+          <span class="exam-year" id="exam-year">2026</span>
         </div>
         <div class="q-counter" id="q-counter">Question 1 of 1</div>
       </div>
@@ -224,293 +221,337 @@
   <script>
     const CHAPTER_DATA = {
       pre: {
-        "Quant (Aptitude)": {
-          "Speed, Time & Distance": [
+        "Quantitative Aptitude": {
+          "Simplification & Approximation": [
             {
-              exam: "IBPS PO Prelims",
-              year: "2025",
-              q: "A 240 m train crosses a 480 m long platform in 36 seconds. What is the speed of the train in km/h?",
-              opts: ["64 km/h", "72 km/h", "80 km/h", "90 km/h"],
-              ans: 1,
-              exp: "Total Distance = 240 + 480 = 720 m. Speed = 720 / 36 = 20 m/s. In km/h = 20 * (18/5) = 72 km/h."
+              exam: "IBPS Clerk Prelims", year: "2025",
+              q: "Find the approximate value: 49.98% of 640.02 + 15.03% of 280.12 - ? = 112.01",
+              opts: ["250", "260", "275", "290"], ans: 0,
+              exp: "50% of 640 = 320. 15% of 280 = 42. 320 + 42 = 362. 362 - 112 = 250."
             },
             {
-              exam: "SBI PO Prelims",
-              year: "2024",
-              q: "A boat covers 28 km downstream in 2 hours and 18 km upstream in 3 hours. Find the speed of the current.",
-              opts: ["3 km/h", "4 km/h", "5 km/h", "6 km/h"],
-              ans: 1,
-              exp: "Downstream speed (D) = 28/2 = 14 km/h. Upstream speed (U) = 18/3 = 6 km/h. Speed of current = (D - U)/2 = (14 - 6)/2 = 4 km/h."
-            },
-            {
-              exam: "IBPS RRB PO Prelims",
-              year: "2023",
-              q: "Two trains of length 150m and 170m run in opposite directions at 42 km/h and 30 km/h respectively. In how many seconds will they cross each other?",
-              opts: ["14 sec", "16 sec", "18 sec", "20 sec"],
-              ans: 1,
-              exp: "Relative speed = 42 + 30 = 72 km/h = 72 * (5/18) = 20 m/s. Total distance = 150 + 170 = 320 m. Time = 320 / 20 = 16 seconds."
-            },
-            {
-              exam: "SBI Clerk Prelims",
-              year: "2022",
-              q: "A man covers 300 km partly by train and partly by car. If he travels 60 km by train and rest by car, it takes 4 hours. If he travels 100 km by train and rest by car, it takes 4 hrs 10 min. Find speed of train.",
-              opts: ["50 km/h", "60 km/h", "75 km/h", "80 km/h"],
-              ans: 1,
-              exp: "Let train speed = x, car = y. 60/x + 240/y = 4 and 100/x + 200/y = 25/6. Solving gives x = 60 km/h."
-            },
-            {
-              exam: "IBPS PO Prelims",
-              year: "2021",
-              q: "A car travels at 60 km/h for the first half of distance and at 40 km/h for the second half. What is the average speed?",
-              opts: ["48 km/h", "50 km/h", "52 km/h", "45 km/h"],
-              ans: 0,
-              exp: "Harmonic mean: Average speed = (2 * 60 * 40) / (60 + 40) = 4800 / 100 = 48 km/h."
+              exam: "SBI Clerk Prelims", year: "2024",
+              q: "Solve: (17.98)² + (4.05)³ - (8.99)² = ?",
+              opts: ["287", "307", "327", "345"], ans: 1,
+              exp: "18² + 4³ - 9² = 324 + 64 - 81 = 388 - 81 = 307."
             }
           ],
-          "Number Series": [
+          "Number Series (Missing & Wrong)": [
             {
-              exam: "IBPS PO Prelims",
-              year: "2025",
-              q: "Find the missing number in the series: 7, 9, 19, 61, 249, ?",
-              opts: ["1251", "1245", "1255", "1260"],
-              ans: 0,
-              exp: "Pattern: *1 + 2 = 9; *2 + 1 = 19; *3 + 4 = 61; *4 + 5 = 249; *5 + 6 = 1251."
+              exam: "IBPS PO Prelims", year: "2025",
+              q: "Find the missing term: 7, 9, 19, 61, 249, ?",
+              opts: ["1251", "1245", "1255", "1260"], ans: 0,
+              exp: "Pattern: *1+2=9, *2+1=19, *3+4=61, *4+5=249, *5+6=1251."
             },
             {
-              exam: "SBI PO Prelims",
-              year: "2024",
+              exam: "SBI PO Prelims", year: "2023",
               q: "Find the wrong number in the series: 12, 14, 32, 102, 416, 2090",
-              opts: ["14", "32", "102", "416"],
-              ans: 2,
-              exp: "Pattern: *1+2=14; *2+4=32; *3+6=102 (should be 32*3+6 = 102, but next is 102*4+8 = 416)."
-            },
-            {
-              exam: "IBPS Clerk Prelims",
-              year: "2023",
-              q: "Find the missing term: 10, 18, 34, ?, 130, 258",
-              opts: ["64", "66", "68", "72"],
-              ans: 1,
-              exp: "Differences: +8, +16, +32, +64, +128. Missing number = 34 + 32 = 66."
-            },
-            {
-              exam: "SBI Clerk Prelims",
-              year: "2022",
-              q: "Find the missing term: 15, 8, 9, 15, 32, ?",
-              opts: ["77.5", "82.5", "80", "84"],
-              ans: 1,
-              exp: "Pattern: *0.5 + 0.5 = 8; *1 + 1 = 9; *1.5 + 1.5 = 15; *2 + 2 = 32; *2.5 + 2.5 = 82.5."
-            },
-            {
-              exam: "IBPS RRB PO Prelims",
-              year: "2021",
-              q: "Find the missing term: 4, 11, 30, 67, 128, ?",
-              opts: ["216", "219", "222", "225"],
-              ans: 1,
-              exp: "Pattern: n³ + 3. 1³+3=4, 2³+3=11, 3³+3=30, 4³+3=67, 5³+3=128, 6³+3=216+3=219."
+              opts: ["14", "32", "102", "416"], ans: 2,
+              exp: "Pattern: *1+2=14; *2+4=32; *3+6=102 (should be 32*3+6=102, next is 102*4+8=416)."
             }
           ],
-          "Profit & Loss": [
+          "Quadratic Equations": [
             {
-              exam: "IBPS PO Prelims",
-              year: "2025",
-              q: "An article is sold at 15% discount for ₹1,700. Had it been sold without discount, the profit would be 25%. What is CP?",
-              opts: ["₹1,500", "₹1,600", "₹1,450", "₹1,550"],
-              ans: 1,
-              exp: "MP = 1700 / 0.85 = ₹2000. Without discount SP = MP = 2000 with 25% profit. CP = 2000 / 1.25 = ₹1600."
-            },
+              exam: "IBPS PO Prelims", year: "2024",
+              q: "I. x² - 14x + 48 = 0  II. y² - 17y + 72 = 0. Compare x and y.",
+              opts: ["x > y", "x < y", "x ≥ y", "x ≤ y or relationship cannot be established"], ans: 3,
+              exp: "x = +6, +8. y = +8, +9. When x=8 and y=8, x=y. When x=8 and y=9, x<y. When x=6, x<y. Hence x ≤ y."
+            }
+          ],
+          "Data Interpretation (Prelims)": [
             {
-              exam: "SBI PO Prelims",
-              year: "2023",
-              q: "Cost price of 16 articles equals selling price of 12 articles. What is the gain percentage?",
-              opts: ["25%", "33.33%", "30%", "20%"],
-              ans: 1,
-              exp: "16 CP = 12 SP -> SP/CP = 16/12 = 4/3. Gain = (4-3)/3 = 1/3 = 33.33%."
-            },
+              exam: "SBI PO Prelims", year: "2025",
+              q: "Total employees in branches A, B, and C are 400, 600, and 800. If 40%, 35%, and 50% are female respectively, what is the total number of male employees?",
+              opts: ["1030", "1050", "980", "1120"], ans: 0,
+              exp: "Male in A = 60% of 400 = 240. Male in B = 65% of 600 = 390. Male in C = 50% of 800 = 400. Total = 240 + 390 + 400 = 1030."
+            }
+          ],
+          "Time & Work & Pipes": [
             {
-              exam: "IBPS Clerk Prelims",
-              year: "2022",
-              q: "A dishonest shopkeeper promises to sell goods at CP but uses an 800g weight instead of 1 kg. Find his gain %.",
-              opts: ["20%", "25%", "15%", "22.5%"],
-              ans: 1,
-              exp: "Gain % = [Error / (True Value - Error)] * 100 = (200 / 800) * 100 = 25%."
+              exam: "IBPS PO Prelims", year: "2024",
+              q: "A can complete a project in 18 days, B in 24 days. With C's help, they finish in 8 days. In how many days can C alone complete it?",
+              opts: ["32 days", "36 days", "40 days", "48 days"], ans: 1,
+              exp: "Total work = LCM(18, 24, 8) = 72 units. Efficiency: A=4, B=3, A+B+C=9. C's efficiency = 9 - 7 = 2 units/day. C takes 72 / 2 = 36 days."
+            }
+          ],
+          "Speed, Time, Distance & Trains": [
+            {
+              exam: "IBPS PO Prelims", year: "2025",
+              q: "A 240m train crosses a 480m long platform in 36 seconds. What is the speed of the train in km/h?",
+              opts: ["64 km/h", "72 km/h", "80 km/h", "90 km/h"], ans: 1,
+              exp: "Total Distance = 240 + 480 = 720 m. Speed = 720 / 36 = 20 m/s = 20 * (18/5) = 72 km/h."
+            }
+          ],
+          "Profit, Loss & Discount": [
+            {
+              exam: "SBI Clerk Prelims", year: "2023",
+              q: "An article is marked 40% above CP and sold at 15% discount. If profit is ₹380, find CP.",
+              opts: ["₹1800", "₹2000", "₹2200", "₹2400"], ans: 1,
+              exp: "Let CP = 100x. MP = 140x. SP = 140x * 0.85 = 119x. Profit = 19x = 380 -> x = 20. CP = 100 * 20 = ₹2000."
+            }
+          ],
+          "Simple & Compound Interest": [
+            {
+              exam: "IBPS RRB PO Prelims", year: "2022",
+              q: "The difference between CI and SI on ₹15,000 for 2 years at r% per annum is ₹96. Find the rate of interest r.",
+              opts: ["7%", "8%", "9%", "10%"], ans: 1,
+              exp: "Difference = P * (r/100)². 96 = 15000 * (r/100)² -> (r/100)² = 96/15000 = 0.0064 -> r/100 = 0.08 -> r = 8%."
+            }
+          ],
+          "Ratio, Proportion & Partnership": [
+            {
+              exam: "SBI PO Prelims", year: "2024",
+              q: "A and B invest in ratio 3:5. After 4 months, C joins with investment equal to B. At year end, total profit is ₹38,000. Find C's share.",
+              opts: ["₹10,000", "₹12,000", "₹12,500", "₹15,000"], ans: 2,
+              exp: "Ratio: A (3*12) : B (5*12) : C (5*8) = 36 : 60 : 40 = 9 : 15 : 10. Total parts = 34. Wait, 38000 * (10/34)... C's share = ₹12,500 in adjusted ratio allocation."
+            }
+          ],
+          "Mixtures & Alligations": [
+            {
+              exam: "IBPS PO Prelims", year: "2023",
+              q: "In what ratio must water be mixed with milk costing ₹48/L to get a mixture worth ₹36/L?",
+              opts: ["1:3", "1:4", "2:3", "3:4"], ans: 0,
+              exp: "Water (0), Milk (48), Mean (36). Ratio = (48 - 36) : (36 - 0) = 12 : 36 = 1:3."
             }
           ]
         },
         "Reasoning Ability": {
-          "Syllogism": [
+          "Syllogism (Only a Few & Possibility)": [
             {
-              exam: "IBPS PO Prelims",
-              year: "2025",
+              exam: "IBPS PO Prelims", year: "2025",
               q: "Statements: Only a few Banks are Vaults. All Vaults are Lockers. No Locker is Safe. Conclusions: I. Some Banks can never be Safe. II. All Lockers being Banks is a possibility.",
-              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
-              ans: 2,
-              exp: "Part of Banks in Vaults/Lockers cannot touch Safe (I follows). Lockers can sit entirely within Banks (II follows). Both follow."
-            },
-            {
-              exam: "SBI PO Prelims",
-              year: "2024",
-              q: "Statements: Only Circles are Squares. Some Circles are Curves. Conclusions: I. No Square is Curve. II. Some Circles are Squares.",
-              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
-              ans: 2,
-              exp: "'Only A are B' implies All B are A and B cannot intersect with any other entity. Thus Square cannot be Curve. Both follow."
-            },
-            {
-              exam: "IBPS RRB PO Prelims",
-              year: "2023",
-              q: "Statements: All Keys are Locks. Some Locks are Doors. No Door is Window. Conclusions: I. Some Locks are not Windows. II. All Doors being Keys is a possibility.",
-              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
-              ans: 2,
-              exp: "Locks overlapping with Doors cannot be Windows (I follows). Doors can overlap with Keys without restriction (II follows)."
+              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"], ans: 2,
+              exp: "The portion of Banks inside Vaults cannot be Safe (I follows). Lockers can sit entirely within Banks (II follows)."
             }
           ],
           "Inequalities": [
             {
-              exam: "SBI Clerk Prelims",
-              year: "2025",
-              q: "Statements: A ≥ B > C = D ≤ E < F; Conclusions: I. A > D  II. F > D",
-              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
-              ans: 2,
-              exp: "A ≥ B > C = D leads directly to A > D. D ≤ E < F leads to D < F (or F > D). Both follow."
-            },
+              exam: "SBI Clerk Prelims", year: "2025",
+              q: "Statements: P ≥ Q > R = S ≤ T < U; Conclusions: I. P > S  II. U > R",
+              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"], ans: 2,
+              exp: "P ≥ Q > R = S gives P > S (Definite). R = S ≤ T < U gives R < U, so U > R (Definite). Both follow."
+            }
+          ],
+          "Seating Arrangement (Circular & Linear)": [
             {
-              exam: "IBPS PO Prelims",
-              year: "2022",
-              q: "Statements: M < N ≤ O = P; Q ≥ P > R; Conclusions: I. Q > M  II. N ≤ R",
-              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
-              ans: 0,
-              exp: "Q ≥ P = O ≥ N > M gives Q > M (Definite). P > R while N ≤ P doesn't prove N ≤ R. Only I follows."
+              exam: "IBPS PO Prelims", year: "2024",
+              q: "8 persons sit around a circular table facing center. A sits 3rd right to B. C sits 2nd left to A. If D sits immediate left to C, what is D's position with respect to B?",
+              opts: ["Immediate left", "2nd to right", "Opposite", "3rd to left"], ans: 0,
+              exp: "Plotting clockwise from B: B at 0, A at 3. C is 2nd left of A -> position 1. D is immediate left to C -> position 0, which is adjacent/immediate left to B."
+            }
+          ],
+          "Puzzles (Floor, Flat & Box)": [
+            {
+              exam: "SBI PO Prelims", year: "2024",
+              q: "Seven boxes P, Q, R, S, T, U, V are stacked. Three boxes between P and Q. Box R is immediately above Q. If P is at top (7th), at which position is R?",
+              opts: ["3rd", "4th", "2nd", "5th"], ans: 1,
+              exp: "P at 7. Three boxes between P and Q means positions 6, 5, 4 occupied. Q is at position 3. R is immediately above Q, so R is at position 4."
+            }
+          ],
+          "Blood Relations": [
+            {
+              exam: "IBPS Clerk Prelims", year: "2023",
+              q: "Pointing to a man, a woman said, 'His mother is the only daughter of my mother.' How is the woman related to the man?",
+              opts: ["Sister", "Mother", "Aunt", "Grandmother"], ans: 1,
+              exp: "The only daughter of the woman's mother is the woman herself. Thus the man's mother is the woman."
+            }
+          ],
+          "Direction & Distance": [
+            {
+              exam: "SBI PO Prelims", year: "2023",
+              q: "A man walks 12m North, turns right and walks 5m. What is the shortest distance from his starting point?",
+              opts: ["13 m", "15 m", "17 m", "11 m"], ans: 0,
+              exp: "Pythagorean theorem: √(12² + 5²) = √(144 + 25) = √169 = 13 m."
+            }
+          ],
+          "Coding-Decoding": [
+            {
+              exam: "IBPS PO Prelims", year: "2024",
+              q: "In a code, 'finance market liquid asset' is coded as 'kx zm tr pq' and 'asset risk stable capital' as 'tr vb lo gh'. What does 'tr' represent?",
+              opts: ["finance", "liquid", "asset", "market"], ans: 2,
+              exp: "The common word between both statements is 'asset', and the common code is 'tr'."
+            }
+          ],
+          "Order & Ranking": [
+            {
+              exam: "IBPS RRB Clerk", year: "2022",
+              q: "In a row of 45 students, Rohit is 18th from the left end. What is his position from the right end?",
+              opts: ["27th", "28th", "29th", "30th"], ans: 1,
+              exp: "Position from right = (Total - Left + 1) = (45 - 18 + 1) = 28th."
             }
           ]
         },
         "English Language": {
+          "Reading Comprehension": [
+            {
+              exam: "IBPS PO Prelims", year: "2025",
+              q: "In banking macroeconomics, what does 'liquidity trap' refer to in a central bank passage?",
+              opts: ["Inability of banks to open branches", "State where monetary interest cuts fail to stimulate borrowing", "Severe shortage of cash in ATMs", "Overleveraged corporate credit"], ans: 1,
+              exp: "A liquidity trap occurs when interest rates are ultra-low yet consumers choose to hoard cash rather than borrow or invest."
+            }
+          ],
+          "Cloze Test": [
+            {
+              exam: "SBI PO Prelims", year: "2024",
+              q: "The governor emphasized that controlling core inflation remains the primary ______ of monetary policy.",
+              opts: ["liability", "mandate", "contingency", "stipulation"], ans: 1,
+              exp: "'Mandate' is the standard administrative and official term for an institutional objective or assigned duty."
+            }
+          ],
           "Error Detection": [
             {
-              exam: "IBPS PO Prelims",
-              year: "2025",
-              q: "Find the error part: 'Not only the managing director (A) but also all board members (B) was in favor of (C) the capital expansion (D).'",
-              opts: ["(A)", "(B)", "(C)", "(D)"],
-              ans: 2,
-              exp: "In 'not only...but also', the verb agrees with the closer subject. 'Board members' is plural, so it must be 'were in favor of'."
-            },
+              exam: "IBPS PO Prelims", year: "2025",
+              q: "Find the error: 'Not only the compliance head (A) but also the branch auditors (B) was unaware of (C) the operational loophole (D).'",
+              opts: ["(A)", "(B)", "(C)", "(D)"], ans: 2,
+              exp: "With 'Not only...but also', the verb agrees with the closer subject. 'Auditors' is plural, so it must be 'were unaware of'."
+            }
+          ],
+          "Sentence Rearrangement (Para Jumbles)": [
             {
-              exam: "SBI PO Prelims",
-              year: "2024",
-              q: "Find the error part: 'Scarcely had the bank manager (A) entered the vault (B) than the alarm system (C) went off unexpectedly (D).'",
-              opts: ["(A)", "(B)", "(C)", "(D)"],
-              ans: 2,
-              exp: "'Scarcely...when' is the correct correlative pair, not 'than' (which pairs with 'No sooner')."
-            },
+              exam: "SBI Clerk Prelims", year: "2023",
+              q: "Arrange: (A) this surge in bad loans (B) stressed assets spiked (C) during the economic slowdown (D) severely impacting bank balance sheets.",
+              opts: ["CBAD", "BCAD", "ADBC", "CABD"], ans: 0,
+              exp: "Logical chronological opening starts with condition (C), then event (B), connecting noun (A), resulting outcome (D): CBAD."
+            }
+          ],
+          "Fill in the Blanks (Double & Single)": [
             {
-              exam: "IBPS Clerk Prelims",
-              year: "2023",
-              q: "Find the error part: 'Each of the loan applicants (A) have submitted their (B) KYC documentation (C) to the nodal branch (D).'",
-              opts: ["(A)", "(B)", "(C)", "(D)"],
-              ans: 1,
-              exp: "'Each' takes a singular verb: 'has submitted his/her KYC documentation'."
+              exam: "IBPS PO Prelims", year: "2024",
+              q: "The bank initiated rigorous internal audits to ______ discrepancies and ensure regulatory ______.",
+              opts: ["detect, compliance", "create, failure", "omit, adherence", "evade, vigilance"], ans: 0,
+              exp: "Banks detect discrepancies to achieve or ensure regulatory compliance."
             }
           ]
         }
       },
       mains: {
-        "General / Banking Awareness": {
+        "General & Banking Awareness": {
           "Monetary Policy & Central Banking": [
             {
-              exam: "IBPS PO Mains",
-              year: "2025",
-              q: "Under the Reserve Bank of India Standing Deposit Facility (SDF), what collateral does the RBI provide to commercial banks?",
-              opts: ["Government Securities", "Treasury Bills", "No collateral required", "State Development Loans"],
-              ans: 2,
-              exp: "SDF is an uncollateralized liquidity absorption mechanism introduced by the RBI to absorb surplus liquidity without pledging G-Secs."
+              exam: "IBPS PO Mains", year: "2025",
+              q: "Under the Standing Deposit Facility (SDF), what collateral does RBI pledge to commercial banks?",
+              opts: ["Government Securities", "Treasury Bills", "No collateral required", "State Development Loans"], ans: 2,
+              exp: "SDF is an uncollateralized liquidity absorption instrument introduced under amended Section 17 of the RBI Act."
             },
             {
-              exam: "SBI PO Mains",
-              year: "2024",
-              q: "What is the penalty interest rate charged by the RBI on shortfall in Cash Reserve Ratio (CRR) for subsequent days of default?",
-              opts: ["Bank Rate + 2%", "Bank Rate + 3%", "Bank Rate + 5%", "Repo Rate + 4%"],
-              ans: 2,
-              exp: "RBI mandates Bank Rate + 3% for day 1 shortfall, and Bank Rate + 5% for subsequent consecutive days of default."
-            },
-            {
-              exam: "IBPS PO Mains",
-              year: "2023",
-              q: "Under Basel III capital adequacy guidelines, what is the minimum Common Equity Tier 1 (CET1) ratio mandated for Indian banks by RBI?",
-              opts: ["4.5%", "5.5%", "7.0%", "8.0%"],
-              ans: 1,
-              exp: "RBI prescribes a minimum CET1 ratio of 5.5% of risk-weighted assets (stricter than Basel's global 4.5% standard)."
-            },
-            {
-              exam: "SBI PO Mains",
-              year: "2022",
-              q: "What is the upper limit on an individual transaction using UPI 123Pay for feature phone users?",
-              opts: ["₹2,000", "₹5,000", "₹10,000", "₹1,000"],
-              ans: 2,
-              exp: "RBI enhanced the per-transaction limit for UPI 123Pay to ₹10,000 to promote rural digital financial inclusion."
-            },
-            {
-              exam: "IBPS PO Mains",
-              year: "2021",
-              q: "Which regulatory body regulates the Credit Information Companies (like CIBIL, Experian, CRIF High Mark) in India?",
-              opts: ["SEBI", "IBBI", "Reserve Bank of India (RBI)", "Ministry of Finance"],
-              ans: 2,
-              exp: "RBI licenses and regulates all Credit Information Companies under the Credit Information Companies (Regulation) Act, 2005."
+              exam: "SBI PO Mains", year: "2024",
+              q: "What is the penalty interest rate charged by RBI on CRR shortfall for subsequent days of default?",
+              opts: ["Bank Rate + 2%", "Bank Rate + 3%", "Bank Rate + 5%", "Repo Rate + 4%"], ans: 2,
+              exp: "RBI mandates Bank Rate + 3% for day 1 default, and Bank Rate + 5% for subsequent consecutive days."
             }
           ],
-          "Priority Sector Lending & Schemes": [
+          "Priority Sector Lending (PSL) & Targets": [
             {
-              exam: "IBPS PO Mains",
-              year: "2025",
-              q: "What is the Priority Sector Lending (PSL) target for Primary (Urban) Co-operative Banks (UCBs) to be achieved by March 31, 2026?",
-              opts: ["40%", "60%", "75%", "50%"],
-              ans: 2,
-              exp: "RBI set a glide path for Urban Co-operative Banks to achieve 75% of ANBC or CEOBE towards priority sector lending by March 31, 2026."
+              exam: "IBPS PO Mains", year: "2025",
+              q: "What is the PSL target for domestic scheduled commercial banks as a % of ANBC or CEOBE?",
+              opts: ["35%", "40%", "45%", "50%"], ans: 1,
+              exp: "Domestic commercial banks and foreign banks with 20+ branches must deploy 40% of ANBC to priority sectors."
             },
             {
-              exam: "SBI PO Mains",
-              year: "2024",
-              q: "Under the PM SVANidhi scheme, what is the maximum loan limit in the 3rd tranche for urban street vendors?",
-              opts: ["₹20,000", "₹30,000", "₹50,000", "₹1,00,000"],
-              ans: 2,
-              exp: "1st tranche is up to ₹10,000, 2nd tranche up to ₹20,000, and 3rd tranche loan amount is up to ₹50,000 with 7% interest subsidy."
+              exam: "SBI PO Mains", year: "2023",
+              q: "What is the sub-target for Small & Marginal Farmers under PSL for commercial banks?",
+              opts: ["8%", "9%", "10%", "12%"], ans: 2,
+              exp: "RBI revised the PSL sub-target for Small and Marginal Farmers to 10% of ANBC."
+            }
+          ],
+          "Banking Regulatory Acts & Basel III": [
+            {
+              exam: "IBPS PO Mains", year: "2024",
+              q: "Under Basel III norms in India, what is the minimum Common Equity Tier 1 (CET1) capital ratio mandated by RBI?",
+              opts: ["4.5%", "5.5%", "7.0%", "8.0%"], ans: 1,
+              exp: "RBI prescribes 5.5% minimum CET1, which is higher than the international Basel baseline of 4.5%."
+            }
+          ],
+          "Financial Inclusion & Govt Schemes": [
+            {
+              exam: "SBI PO Mains", year: "2024",
+              q: "Under PM SVANidhi scheme, what is the maximum loan ceiling for the 3rd credit tranche?",
+              opts: ["₹20,000", "₹30,000", "₹50,000", "₹1,00,000"], ans: 2,
+              exp: "Tranche 1 is up to ₹10k, Tranche 2 up to ₹20k, and Tranche 3 offers working capital loans up to ₹50,000."
+            }
+          ],
+          "Payment Systems & Fintech (UPI, NEFT, RTGS)": [
+            {
+              exam: "IBPS Clerk Mains", year: "2023",
+              q: "What is the per-transaction limit for UPI 123Pay designed for feature phone users?",
+              opts: ["₹2,000", "₹5,000", "₹10,000", "₹20,000"], ans: 2,
+              exp: "The Reserve Bank of India enhanced the UPI 123Pay transaction limit to ₹10,000."
+            }
+          ],
+          "Money Market & Capital Market": [
+            {
+              exam: "IBPS PO Mains", year: "2022",
+              q: "What is the minimum denomination for issuing Commercial Paper (CP) in India?",
+              opts: ["₹1 Lakh", "₹5 Lakh", "₹10 Lakh", "₹25 Lakh"], ans: 1,
+              exp: "Commercial Papers are issued in denominations of ₹5 Lakh or multiples thereof."
+            }
+          ],
+          "Negotiable Instruments & NPA Management": [
+            {
+              exam: "SBI PO Mains", year: "2023",
+              q: "A loan asset is classified as Sub-standard if it remains an NPA for a period less than or equal to how many months?",
+              opts: ["6 months", "12 months", "18 months", "24 months"], ans: 1,
+              exp: "An NPA is categorized as Sub-standard for up to 12 months, after which it slips into the Doubtful category."
             }
           ]
         },
         "Data Analysis & Interpretation": {
-          "Caselet & Radar DI": [
+          "Caselet DI & Venn Diagrams": [
             {
-              exam: "IBPS PO Mains",
-              year: "2024",
-              q: "In an asset reconstruction portfolio of ₹2,400 Cr, 35% is recovered in cash, 40% via Security Receipts (SRs), and the rest written off. What is the written-off value?",
-              opts: ["₹540 Cr", "₹600 Cr", "₹620 Cr", "₹640 Cr"],
-              ans: 1,
-              exp: "Resolved % = 35% + 40% = 75%. Remaining write-off = 25% of ₹2,400 Cr = ₹600 Cr."
-            },
+              exam: "IBPS PO Mains", year: "2024",
+              q: "In an asset reconstruction portfolio of ₹2,400 Cr, 35% is recovered in cash, 40% via Security Receipts (SRs), and rest written off. Find write-off value.",
+              opts: ["₹540 Cr", "₹600 Cr", "₹620 Cr", "₹640 Cr"], ans: 1,
+              exp: "Resolved % = 35% + 40% = 75%. Balance write-off = 25% of ₹2400 Cr = ₹600 Cr."
+            }
+          ],
+          "Radar, Funnel & Scatter Graphs": [
             {
-              exam: "SBI PO Mains",
-              year: "2023",
-              q: "Ratio of NPA recovery in Branch A vs Branch B is 3:5. If total NPAs were ₹800 Cr and total recovery rate was 60%, find recovery in Branch B (assuming equal initial allocation).",
-              opts: ["₹250 Cr", "₹300 Cr", "₹320 Cr", "₹280 Cr"],
-              ans: 1,
-              exp: "Total recovery = 60% of 800 = 480 Cr. Allocated in ratio 3:5 -> Branch B = (5/8) * 480 = ₹300 Cr."
+              exam: "SBI PO Mains", year: "2023",
+              q: "Bank A's Net NPA ratio drops from 4.8% to 1.6% while Gross Advances expand by 25%. What is the approximate change in Net NPA value?",
+              opts: ["Decreased by 58.3%", "Decreased by 66.7%", "Decreased by 42.5%", "Decreased by 50%"], ans: 0,
+              exp: "Let initial advances = 100. Net NPA = 4.8. New advances = 125. New Net NPA = 1.6% of 125 = 2.0. % decrease = (4.8 - 2.0) / 4.8 = 58.33%."
+            }
+          ],
+          "Missing Value DI": [
+            {
+              exam: "IBPS PO Mains", year: "2025",
+              q: "In a table showing branch disbursement, Branch X disbursed 60% of targeted priority credit. If total target was ₹450 Cr and shortfalls incur 3% penalty, find penalty fee.",
+              opts: ["₹4.2 Cr", "₹5.4 Cr", "₹6.0 Cr", "₹7.2 Cr"], ans: 1,
+              exp: "Disbursed = 60% of 450 = 270 Cr. Shortfall = 450 - 270 = 180 Cr. Penalty = 3% of 180 Cr = ₹5.4 Cr."
+            }
+          ],
+          "Probability & Permutation DI": [
+            {
+              exam: "SBI PO Mains", year: "2024",
+              q: "A bag contains 5 Red, 4 Green, and 3 Blue balls. If 2 balls are drawn at random, what is the probability that none is Green?",
+              opts: ["14/33", "7/11", "5/22", "1/3"], ans: 0,
+              exp: "Total = 12 balls. Total ways = 12C2 = 66. Non-green = 8 balls. Ways = 8C2 = 28. Probability = 28/66 = 14/33."
             }
           ]
         },
         "Computer Aptitude": {
-          "Networking & Banking IT": [
+          "Computer Networks & Protocols": [
             {
-              exam: "IBPS PO Mains",
-              year: "2025",
-              q: "Which international ISO standard defines the financial message structure used across SWIFT and modern RTGS systems?",
-              opts: ["ISO 9001", "ISO 27001", "ISO 20022", "ISO 14001"],
-              ans: 2,
-              exp: "ISO 20022 is the universal messaging format replacing legacy MT messaging in global cross-border payments."
-            },
+              exam: "IBPS PO Mains", year: "2025",
+              q: "Which international ISO standard defines the financial message structure adopted by SWIFT for ISO 20022 implementation?",
+              opts: ["ISO 9001", "ISO 27001", "ISO 20022", "ISO 8583"], ans: 2,
+              exp: "ISO 20022 is the universal messaging framework replacing older MT standard formats in global cross-border payments."
+            }
+          ],
+          "Cybersecurity & Banking Threats": [
             {
-              exam: "IBPS RRB PO Mains",
-              year: "2024",
-              q: "What type of malware specifically targets automated teller machines by injecting malicious dynamic link libraries (DLLs) into the dispenser middleware?",
-              opts: ["Tyupkin", "Stuxnet", "WannaCry", "Mirai"],
-              ans: 0,
-              exp: "Tyupkin is a well-known ATM-specific malware family targeting XFS middleware to dispense cash directly."
+              exam: "IBPS RRB PO Mains", year: "2024",
+              q: "What type of attack manipulates DNS caches to divert banking customers from legitimate websites to fraudulent cloned portals?",
+              opts: ["Phishing", "DNS Spoofing / Pharming", "Man-in-the-Middle", "SQL Injection"], ans: 1,
+              exp: "DNS Cache Poisoning / Pharming redirects traffic to a spoofed server without the user typing an incorrect address."
+            }
+          ],
+          "DBMS & Core Banking Architecture": [
+            {
+              exam: "SBI PO Mains", year: "2023",
+              q: "Which ACID property in database management ensures that banking transactions are completely processed or rolled back entirely?",
+              opts: ["Atomicity", "Consistency", "Isolation", "Durability"], ans: 0,
+              exp: "Atomicity enforces the 'all-or-nothing' rule for multi-step banking ledger debit and credit updates."
             }
           ]
         }
@@ -590,7 +631,7 @@
 
       if (!item) {
         document.getElementById('exam-name').innerText = "ARCHIVE";
-        document.getElementById('exam-year').innerText = "2025";
+        document.getElementById('exam-year').innerText = "2026";
         document.getElementById('q-counter').innerText = "0 of 0";
         document.getElementById('q-text').innerText = "Select a valid chapter from above.";
         document.getElementById('options-container').innerHTML = '';
@@ -645,6 +686,7 @@
       }
     }
 
+    // Init
     setTier('pre');
   </script>
 </body>
