@@ -160,12 +160,27 @@
       color: #94a3b8;
       font-weight: 600;
     }
+
+    /* Common Context / Passage / DI Block */
+    .context-box {
+      background: #091224;
+      border-left: 4px solid #38bdf8;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      color: #94a3b8;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
     .q-title {
       font-size: 1.05rem;
       font-weight: 600;
       color: #f8fafc;
       line-height: 1.55;
       margin-bottom: 18px;
+      white-space: pre-line;
     }
     .opt-btn {
       display: block;
@@ -247,7 +262,7 @@
     <!-- Chapter Selector -->
     <div class="scroll-row chapter-bar" id="chapter-list"></div>
 
-    <!-- Interactive 1-100 Question Palette Grid -->
+    <!-- 1-100 Question Palette Grid -->
     <div class="palette-container" id="palette-grid"></div>
 
     <!-- Quiz Question Area -->
@@ -261,6 +276,7 @@
       </div>
 
       <div id="content-area">
+        <div id="context-box" class="context-box" style="display:none;"></div>
         <div id="q-text" class="q-title">Loading Question...</div>
         <div id="options-container"></div>
         <div id="feedback" class="feedback"></div>
@@ -281,16 +297,15 @@
     let currentChapterObj = null;
     let currentQuestions = [];
     let currentQIdx = 0;
-    let userAnswers = {}; // { qIdx: selectedOptIdx }
+    let userAnswers = {};
 
-    // Fetch Syllabus Manifest
     fetch('data/manifest.json')
       .then(r => r.json())
       .then(d => {
         manifestData = d;
         setTier('prelims');
       })
-      .catch(e => {
+      .catch(() => {
         document.getElementById('q-text').innerText = "Failed to load syllabus. Please refresh.";
       });
 
@@ -406,7 +421,10 @@
       }
 
       const contentBox = document.getElementById('content-area');
+      const hasContext = item.context && item.context.trim().length > 0;
+      
       contentBox.innerHTML = `
+        <div id="context-box" class="context-box" style="${hasContext ? 'display:block;' : 'display:none;'}">${item.context || ''}</div>
         <div class="q-title">${currentQIdx + 1}. ${item.q}</div>
         <div id="options-container"></div>
         <div id="feedback" class="feedback"></div>
@@ -443,7 +461,6 @@
         }
       }
 
-      // Update Nav Buttons
       document.getElementById('prev-btn').disabled = (currentQIdx === 0);
       document.getElementById('next-btn').disabled = (currentQIdx === currentQuestions.length - 1);
     }
@@ -469,7 +486,6 @@
       }
     }
 
-    // Keyboard Navigation: Left & Right arrows
     window.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') nextQuestion();
       if (e.key === 'ArrowLeft') prevQuestion();
