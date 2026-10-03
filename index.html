@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartBanker AI — 50+ PYQs Per Chapter Bank (2021–2026)</title>
+  <title>SmartBanker AI — Modular 5-Year Chapterwise PYQ Portal</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -99,6 +99,7 @@
       padding: 22px;
       position: relative;
       margin-top: 8px;
+      min-height: 260px;
     }
     .meta-top-bar {
       display: flex;
@@ -126,15 +127,15 @@
       border-radius: 4px;
       color: #facc15;
     }
-    .q-counter {
-      font-size: 0.82rem;
-      color: #94a3b8;
-      font-weight: 600;
-    }
     .q-jump-wrap {
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+    .q-counter {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      font-weight: 600;
     }
     .q-select {
       background: #1e293b;
@@ -197,6 +198,14 @@
       transition: 0.2s;
     }
     .nav-btn:hover { background: #0369a1; }
+    .loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 140px;
+      color: #38bdf8;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -204,7 +213,7 @@
     <div class="header-row">
       <h1>🏦 SmartBanker AI</h1>
       <div class="tier-toggle">
-        <button class="tier-btn active" id="btn-pre" onclick="setTier('pre')">Prelims</button>
+        <button class="tier-btn active" id="btn-pre" onclick="setTier('prelims')">Prelims</button>
         <button class="tier-btn" id="btn-mains" onclick="setTier('mains')">Mains</button>
       </div>
     </div>
@@ -224,256 +233,44 @@
         </div>
       </div>
 
-      <div id="q-text" class="q-title">Loading Question...</div>
-      <div id="options-container"></div>
-      <div id="feedback" class="feedback"></div>
-      <div class="nav-btn-row">
-        <button id="prev-btn" class="nav-btn" style="background:#334155; display:none;" onclick="prevQuestion()">← Previous</button>
-        <button id="next-btn" class="nav-btn" style="display:none;" onclick="nextQuestion()">Next Question →</button>
+      <div id="content-area">
+        <div id="q-text" class="q-title">Loading Question...</div>
+        <div id="options-container"></div>
+        <div id="feedback" class="feedback"></div>
+        <div class="nav-btn-row">
+          <button id="prev-btn" class="nav-btn" style="background:#334155; display:none;" onclick="prevQuestion()">← Previous</button>
+          <button id="next-btn" class="nav-btn" style="display:none;" onclick="nextQuestion()">Next Question →</button>
+        </div>
       </div>
     </div>
   </div>
 
   <script src="https://unknownuniversem-blip.github.io/network.js" defer></script>
   <script>
-    const EXAMS = [
-      { name: "IBPS PO Prelims", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "SBI PO Prelims", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "IBPS Clerk Prelims", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "SBI Clerk Prelims", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "IBPS RRB Officer Scale I", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "RBI Assistant Prelims", years: [2022, 2023, 2024, 2025] }
-    ];
-
-    const MAINS_EXAMS = [
-      { name: "IBPS PO Mains", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "SBI PO Mains", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "IBPS RRB PO Mains", years: [2021, 2022, 2023, 2024, 2025] },
-      { name: "RBI Grade B Phase II", years: [2022, 2023, 2024, 2025] }
-    ];
-
-    function make50(generatorFn, isMains = false) {
-      const list = [];
-      const pool = isMains ? MAINS_EXAMS : EXAMS;
-      for (let i = 1; i <= 50; i++) {
-        const examItem = pool[i % pool.length];
-        const yr = examItem.years[i % examItem.years.length];
-        const item = generatorFn(i);
-        item.exam = examItem.name;
-        item.year = yr;
-        list.push(item);
-      }
-      return list;
-    }
-
-    const CHAPTERS_DB = {
-      pre: {
-        "Quantitative Aptitude": {
-          "Simplification & Approximation": make50(i => {
-            const a = 120 + i * 4, b = 20 + (i % 8) * 5, c = 40 + i * 2;
-            const ansVal = (a * 0.5) + (b * 2) - c;
-            return {
-              q: `Find the approximate value: 50.02% of ${a}.12 + ${(b*2)}.05 - ${c}.15 = ?`,
-              opts: [ansVal.toString(), (ansVal + 10).toString(), (ansVal - 15).toString(), (ansVal + 5).toString()],
-              ans: 0,
-              exp: `50% of ${a} = ${a*0.5}. Add ${b*2} -> ${a*0.5 + b*2}. Subtract ${c} -> ${ansVal}.`
-            };
-          }),
-          "Number Series (Missing & Wrong)": make50(i => {
-            const start = 4 + (i % 6);
-            const mult = 2 + (i % 3);
-            const s1 = start, s2 = s1 * mult + 1, s3 = s2 * mult + 2, s4 = s3 * mult + 3, s5 = s4 * mult + 4;
-            return {
-              q: `Find the missing number in series: ${s1}, ${s2}, ${s3}, ${s4}, ?`,
-              opts: [s5.toString(), (s5 + 4).toString(), (s5 - 6).toString(), (s5 + 10).toString()],
-              ans: 0,
-              exp: `Pattern is *${mult} + 1, *${mult} + 2, *${mult} + 3, *${mult} + 4. Answer is ${s5}.`
-            };
-          }),
-          "Quadratic Equations": make50(i => {
-            const r1 = 3 + (i % 5), r2 = 5 + (i % 4);
-            const b = r1 + r2, c = r1 * r2;
-            return {
-              q: `Equation: x² - ${b}x + ${c} = 0. What are the roots of x?`,
-              opts: [`x = ${r1}, ${r2}`, `x = -${r1}, -${r2}`, `x = ${r1}, -${r2}`, `x = ${r1+1}, ${r2-1}`],
-              ans: 0,
-              exp: `Factoring x² - ${b}x + ${c} gives (x - ${r1})(x - ${r2}) = 0. Roots are +${r1} and +${r2}.`
-            };
-          }),
-          "Speed, Time & Distance & Trains": make50(i => {
-            const trainL = 150 + (i % 10) * 10;
-            const platL = 200 + (i % 8) * 25;
-            const speedKmh = 54 + (i % 4) * 18;
-            const speedMs = speedKmh * 5 / 18;
-            const time = Math.round((trainL + platL) / speedMs);
-            return {
-              q: `A ${trainL}m train runs at ${speedKmh} km/h. How many seconds will it take to cross a ${platL}m platform?`,
-              opts: [`${time} sec`, `${time + 4} sec`, `${time - 3} sec`, `${time + 8} sec`],
-              ans: 0,
-              exp: `Total distance = ${trainL} + ${platL} = ${trainL + platL}m. Speed = ${speedKmh} * (5/18) = ${speedMs} m/s. Time = ${(trainL + platL)} / ${speedMs} = ${time} sec.`
-            };
-          }),
-          "Profit, Loss & Discount": make50(i => {
-            const cp = 1000 + i * 50;
-            const markup = 20 + (i % 4) * 10;
-            const mp = cp * (1 + markup / 100);
-            return {
-              q: `A seller marks an item costing ₹${cp} at ${markup}% above cost price and gives no discount. What is the selling price?`,
-              opts: [`₹${mp}`, `₹${mp - 50}`, `₹${mp + 100}`, `₹${mp + 60}`],
-              ans: 0,
-              exp: `MP = CP * (1 + ${markup}/100) = ₹${cp} * ${(1 + markup/100)} = ₹${mp}.`
-            };
-          }),
-          "Time & Work & Pipes": make50(i => {
-            const d1 = 12 + (i % 6);
-            const d2 = 24 + (i % 6);
-            const totalWork = d1 * d2;
-            const ansDays = (totalWork / (d2 + d1)).toFixed(1);
-            return {
-              q: `Pipe A fills in ${d1} hours, Pipe B fills in ${d2} hours. Working together, in how many hours will they fill the tank?`,
-              opts: [`${ansDays} hrs`, `${parseFloat(ansDays)+2} hrs`, `${parseFloat(ansDays)-1.5} hrs`, `${parseFloat(ansDays)+3} hrs`],
-              ans: 0,
-              exp: `1/Time = 1/${d1} + 1/${d2}. Net time = (${d1} * ${d2}) / (${d1} + ${d2}) ≈ ${ansDays} hours.`
-            };
-          }),
-          "Simple & Compound Interest": make50(i => {
-            const p = 5000 + i * 200;
-            const r = 10;
-            const diff = (p * (r / 100) * (r / 100)).toFixed(0);
-            return {
-              q: `Find the difference between CI and SI on ₹${p} for 2 years at 10% per annum.`,
-              opts: [`₹${diff}`, `₹${parseInt(diff)+15}`, `₹${parseInt(diff)-10}`, `₹${parseInt(diff)+25}`],
-              ans: 0,
-              exp: `Difference for 2 years = P * (R/100)² = ${p} * 0.01 = ₹${diff}.`
-            };
-          })
-        },
-        "Reasoning Ability": {
-          "Syllogism (Only a Few & Possibility)": make50(i => {
-            const nouns = ["Banks/Vaults", "Funds/Shares", "Accounts/Ledgers", "Cards/Chips", "Coins/Notes"];
-            const pair = nouns[i % nouns.length].split("/");
-            return {
-              q: `Statements: Only a few ${pair[0]} are ${pair[1]}. All ${pair[1]} are Safe. Conclusions: I. Some ${pair[0]} are not ${pair[1]}. II. All ${pair[0]} being ${pair[1]} is a possibility.`,
-              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
-              ans: 0,
-              exp: `'Only a few' strictly implies that some ${pair[0]} are NOT ${pair[1]}, so All ${pair[0]} can never be ${pair[1]}. Hence only conclusion I follows.`
-            };
-          }),
-          "Inequalities": make50(i => {
-            return {
-              q: `Statements: A ≥ B > C = D ≤ E < F. Which of the following is definitely true?`,
-              opts: ["A > D", "D > F", "C > A", "B ≤ D"],
-              ans: 0,
-              exp: `A ≥ B > C = D implies A > D directly because of the strict inequality between B and C.`
-            };
-          }),
-          "Seating Arrangement (Circular & Linear)": make50(i => {
-            const persons = ["A", "B", "C", "D", "E", "F", "G", "H"];
-            const leader = persons[i % persons.length];
-            return {
-              q: `8 persons sit in a row facing North. ${leader} is 4th from the left. How many persons are seated to the right of ${leader}?`,
-              opts: ["4", "3", "5", "2"],
-              ans: 0,
-              exp: `Total = 8 persons. If ${leader} is at 4th position, remaining to the right = 8 - 4 = 4 persons.`
-            };
-          }),
-          "Blood Relations": make50(i => {
-            return {
-              q: `A is the brother of B. C is the father of A. D is the sister of C. How is D related to B?`,
-              opts: ["Aunt", "Mother", "Sister", "Niece"],
-              ans: 0,
-              exp: `Since C is the father of both A and B, the sister of C (D) is the paternal Aunt of B.`
-            };
-          })
-        },
-        "English Language": {
-          "Error Detection": make50(i => {
-            return {
-              q: `Identify the error segment: 'Neither the credit manager (A) nor the account auditors (B) was prepared (C) for the sudden RBI inspection (D).'`,
-              opts: ["(A)", "(B)", "(C)", "(D)"],
-              ans: 2,
-              exp: `In 'neither...nor', the verb agrees with the nearest subject. 'Account auditors' is plural, so it must be 'were prepared', not 'was prepared'.`
-            };
-          }),
-          "Reading Comprehension (Vocab & Inference)": make50(i => {
-            return {
-              q: `What is the closest synonym for 'PRUDENTIAL' as used in banking supervision passages?`,
-              opts: ["Cautious / Judicious", "Reckless", "Speculative", "Extravagant"],
-              ans: 0,
-              exp: `'Prudential' norms refer to cautious, safe, and judicious financial standards that avoid unnecessary risk.`
-            };
-          })
-        }
-      },
-      mains: {
-        "General & Banking Awareness": {
-          "Monetary Policy & Central Banking": make50(i => {
-            const concepts = [
-              { q: "What is the primary objective of the Monetary Policy Committee (MPC) under the RBI Act?", a: "To maintain price stability while keeping in mind growth", opt2: "To control corporate taxation", opt3: "To manage stock exchanges", opt4: "To directly set bank savings rates" },
-              { q: "What does the uncollateralized Standing Deposit Facility (SDF) rate replace as the floor of the LAF corridor?", a: "Fixed Reverse Repo Rate", opt2: "Repo Rate", opt3: "MSF Rate", opt4: "Bank Rate" },
-              { q: "Under Basel III, what is the Capital Conservation Buffer (CCB) requirement mandated by the RBI?", a: "2.50% of Risk Weighted Assets", opt2: "1.875%", opt3: "3.50%", opt4: "4.00%" }
-            ];
-            const c = concepts[i % concepts.length];
-            return {
-              q: c.q,
-              opts: [c.a, c.opt2, c.opt3, c.opt4],
-              ans: 0,
-              exp: `Correct regulatory benchmark answer: ${c.a}.`
-            };
-          }, true),
-          "Priority Sector Lending (PSL) & Targets": make50(i => {
-            return {
-              q: `What percentage of Adjusted Net Bank Credit (ANBC) must domestic scheduled commercial banks allocate to Priority Sector Lending?`,
-              opts: ["40%", "35%", "50%", "75%"],
-              ans: 0,
-              exp: `Commercial banks are mandated to lend 40% of ANBC (or CEOBE) to priority sectors under RBI guidelines.`
-            };
-          }, true),
-          "Financial Inclusion & Banking Schemes": make50(i => {
-            return {
-              q: `What is the maximum overdraft (OD) facility available under Pradhan Mantri Jan Dhan Yojana (PMJDY) for eligible account holders?`,
-              opts: ["₹10,000", "₹5,000", "₹15,000", "₹20,000"],
-              ans: 0,
-              exp: `The overdraft limit under PMJDY has been enhanced up to ₹10,000 (with no conditions up to ₹2,000).`
-            };
-          }, true)
-        },
-        "Data Analysis & Interpretation": {
-          "High-Level Caselets & Graphs": make50(i => {
-            const val = 1200 + i * 50;
-            const res = Math.round(val * 0.28);
-            return {
-              q: `A commercial bank settles ₹${val} Cr of stressed assets. If 28% was recovered via cash and the rest restructured, how much was recovered in cash?`,
-              opts: [`₹${res} Cr`, `₹${res + 40} Cr`, `₹${res - 25} Cr`, `₹${res + 60} Cr`],
-              ans: 0,
-              exp: `Cash recovery = 28% of ₹${val} Cr = ₹${res} Cr.`
-            };
-          }, true)
-        },
-        "Computer Aptitude": {
-          "Networking & Banking IT Systems": make50(i => {
-            return {
-              q: `Which universal messaging standard has SWIFT and Indian RTGS migrated to for seamless structured transactions?`,
-              opts: ["ISO 20022", "ISO 9001", "ISO 27001", "ISO 8583"],
-              ans: 0,
-              exp: `ISO 20022 provides rich data syntax replacing older MT messaging standards in real-time settlement.`
-            };
-          }, true)
-        }
-      }
-    };
-
-    let currentTier = 'pre';
+    let manifestData = null;
+    let currentTier = 'prelims';
     let currentSubject = '';
-    let currentChapter = '';
+    let currentChapterObj = null;
+    let currentQuestions = [];
     let currentQIdx = 0;
+
+    // Fetch manifest index on boot
+    fetch('data/manifest.json')
+      .then(res => res.json())
+      .then(data => {
+        manifestData = data;
+        setTier('prelims');
+      })
+      .catch(err => {
+        document.getElementById('q-text').innerText = "Failed to load syllabus index. Please refresh.";
+      });
 
     function setTier(tier) {
       currentTier = tier;
-      document.getElementById('btn-pre').classList.toggle('active', tier === 'pre');
+      document.getElementById('btn-pre').classList.toggle('active', tier === 'prelims');
       document.getElementById('btn-mains').classList.toggle('active', tier === 'mains');
       
-      const subjects = Object.keys(CHAPTERS_DB[currentTier]);
+      const subjects = Object.keys(manifestData[currentTier]);
       currentSubject = subjects[0];
       renderSubjects();
     }
@@ -481,7 +278,7 @@
     function renderSubjects() {
       const subContainer = document.getElementById('subject-list');
       subContainer.innerHTML = '';
-      const subjects = Object.keys(CHAPTERS_DB[currentTier]);
+      const subjects = Object.keys(manifestData[currentTier]);
 
       subjects.forEach(sub => {
         const btn = document.createElement('button');
@@ -500,35 +297,61 @@
     function renderChapters() {
       const chContainer = document.getElementById('chapter-list');
       chContainer.innerHTML = '';
-      const chapters = Object.keys(CHAPTERS_DB[currentTier][currentSubject] || {});
+      const chapters = manifestData[currentTier][currentSubject] || [];
       
-      currentChapter = chapters[0] || '';
+      currentChapterObj = chapters[0] || null;
 
       chapters.forEach(ch => {
         const btn = document.createElement('button');
-        btn.className = 'pill-btn' + (ch === currentChapter ? ' active' : '');
-        btn.innerText = ch;
+        btn.className = 'pill-btn' + (currentChapterObj && ch.chapter === currentChapterObj.chapter ? ' active' : '');
+        btn.innerText = ch.chapter;
         btn.onclick = () => {
-          currentChapter = ch;
+          currentChapterObj = ch;
           document.querySelectorAll('#chapter-list .pill-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          currentQIdx = 0;
-          buildJumpDropdown();
-          loadQuestion();
+          loadChapterFile(ch.file);
         };
         chContainer.appendChild(btn);
       });
 
-      currentQIdx = 0;
-      buildJumpDropdown();
-      loadQuestion();
+      if (currentChapterObj) {
+        loadChapterFile(currentChapterObj.file);
+      }
+    }
+
+    function loadChapterFile(filePath) {
+      document.getElementById('content-area').innerHTML = '<div class="loader">⚡ Loading chapter questions...</div>';
+      
+      fetch(filePath)
+        .then(res => res.json())
+        .then(data => {
+          currentQuestions = data;
+          currentQIdx = 0;
+          restoreContentDOM();
+          buildJumpDropdown();
+          loadQuestion();
+        })
+        .catch(err => {
+          document.getElementById('content-area').innerHTML = '<div class="loader" style="color:#f87171">Failed to load questions. Please check connection.</div>';
+        });
+    }
+
+    function restoreContentDOM() {
+      document.getElementById('content-area').innerHTML = `
+        <div id="q-text" class="q-title"></div>
+        <div id="options-container"></div>
+        <div id="feedback" class="feedback"></div>
+        <div class="nav-btn-row">
+          <button id="prev-btn" class="nav-btn" style="background:#334155; display:none;" onclick="prevQuestion()">← Previous</button>
+          <button id="next-btn" class="nav-btn" style="display:none;" onclick="nextQuestion()">Next Question →</button>
+        </div>
+      `;
     }
 
     function buildJumpDropdown() {
-      const qList = (CHAPTERS_DB[currentTier][currentSubject] && CHAPTERS_DB[currentTier][currentSubject][currentChapter]) || [];
       const sel = document.getElementById('jump-select');
       sel.innerHTML = '';
-      for (let i = 0; i < qList.length; i++) {
+      for (let i = 0; i < currentQuestions.length; i++) {
         const opt = document.createElement('option');
         opt.value = i;
         opt.innerText = `Q ${i + 1}`;
@@ -542,22 +365,16 @@
     }
 
     function loadQuestion() {
-      const qList = (CHAPTERS_DB[currentTier][currentSubject] && CHAPTERS_DB[currentTier][currentSubject][currentChapter]) || [];
-      const item = qList[currentQIdx];
-
+      const item = currentQuestions[currentQIdx];
       document.getElementById('feedback').innerText = '';
       document.getElementById('prev-btn').style.display = currentQIdx > 0 ? 'block' : 'none';
       document.getElementById('next-btn').style.display = 'none';
 
-      if (!item) {
-        document.getElementById('q-text').innerText = "Select a chapter to begin.";
-        document.getElementById('options-container').innerHTML = '';
-        return;
-      }
+      if (!item) return;
 
       document.getElementById('exam-name').innerText = item.exam;
       document.getElementById('exam-year').innerText = item.year;
-      document.getElementById('q-counter').innerText = `Q ${currentQIdx + 1} of ${qList.length}`;
+      document.getElementById('q-counter').innerText = `Q ${currentQIdx + 1} of ${currentQuestions.length}`;
       document.getElementById('jump-select').value = currentQIdx;
       document.getElementById('q-text').innerText = `${currentQIdx + 1}. ${item.q}`;
 
@@ -574,8 +391,7 @@
     }
 
     function handleAnswer(selected) {
-      const qList = CHAPTERS_DB[currentTier][currentSubject][currentChapter];
-      const item = qList[currentQIdx];
+      const item = currentQuestions[currentQIdx];
       document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
       const fb = document.getElementById('feedback');
 
@@ -584,17 +400,19 @@
         fb.innerText = "✔ Correct! " + item.exp;
       } else {
         fb.className = 'feedback incorrect';
-        fb.innerText = "✖ Incorrect. Solution: " + item.exp;
+        fb.innerText = "✖ Incorrect. " + item.exp;
       }
 
-      if (currentQIdx < qList.length - 1) {
+      if (currentQIdx < currentQuestions.length - 1) {
         document.getElementById('next-btn').style.display = 'block';
       }
     }
 
     function nextQuestion() {
-      currentQIdx++;
-      loadQuestion();
+      if (currentQIdx < currentQuestions.length - 1) {
+        currentQIdx++;
+        loadQuestion();
+      }
     }
 
     function prevQuestion() {
@@ -603,8 +421,6 @@
         loadQuestion();
       }
     }
-
-    setTier('pre');
   </script>
 </body>
 </html>
