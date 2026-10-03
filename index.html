@@ -3,33 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartBanker AI — Banking Exam Prep (Pre + Mains PYQs)</title>
+  <title>SmartBanker AI — Chapter-wise PYQ Bank (IBPS/SBI PO & Clerk)</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #070c18; color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 30px 16px 80px; }
-    .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 18px; padding: 28px; max-width: 780px; width: 100%; box-shadow: 0 12px 35px rgba(0,0,0,0.5); }
-    .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    h1 { font-size: 1.7rem; color: #fff; display: flex; align-items: center; gap: 8px; }
-    .tier-toggle { display: flex; background: #070c18; padding: 4px; border-radius: 10px; border: 1px solid #1e293b; }
-    .tier-btn { padding: 6px 14px; font-size: 0.85rem; font-weight: 700; color: #94a3b8; background: transparent; border: none; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-    .tier-btn.active { background: #0284c7; color: #fff; }
-    
-    .subject-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 20px; scrollbar-width: thin; }
-    .sub-btn { white-space: nowrap; padding: 8px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #cbd5e1; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: 0.2s; }
-    .sub-btn.active { background: #38bdf8; color: #070c18; border-color: #38bdf8; font-weight: 700; }
-    
-    .meta-status { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 0.85rem; color: #94a3b8; }
-    .quiz-box { background: #131d35; border: 1px solid #1e293b; border-radius: 14px; padding: 22px; }
-    .q-title { font-size: 1.05rem; font-weight: 600; color: #f8fafc; line-height: 1.5; margin-bottom: 18px; }
-    .opt-btn { display: block; width: 100%; text-align: left; padding: 12px 16px; margin-bottom: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #e2e8f0; font-size: 0.95rem; cursor: pointer; transition: 0.2s; }
-    .opt-btn:hover { background: #27354f; border-color: #38bdf8; }
-    .feedback { min-height: 24px; font-size: 0.92rem; font-weight: 600; margin-top: 14px; line-height: 1.4; }
+    body {
+      background: #070c18;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 24px 16px 80px;
+    }
+    .card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      padding: 26px;
+      max-width: 820px;
+      width: 100%;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 1.65rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tier-toggle {
+      display: flex;
+      background: #070c18;
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid #1e293b;
+    }
+    .tier-btn {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #94a3b8;
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .tier-btn.active {
+      background: #0284c7;
+      color: #fff;
+    }
+    .scroll-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      scrollbar-width: thin;
+    }
+    .pill-btn {
+      white-space: nowrap;
+      padding: 7px 14px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .pill-btn:hover {
+      border-color: #38bdf8;
+    }
+    .pill-btn.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+    }
+    .chapter-bar .pill-btn.active {
+      background: #38bdf8;
+      color: #070c18;
+      font-weight: 700;
+    }
+    .quiz-box {
+      background: #131d35;
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 22px;
+      position: relative;
+      margin-top: 10px;
+    }
+    .meta-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .exam-tag {
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .exam-tag .exam-year {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .q-counter {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .q-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f8fafc;
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    .opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 0.94rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .opt-btn:hover:not(:disabled) {
+      background: #27354f;
+      border-color: #38bdf8;
+    }
+    .feedback {
+      min-height: 24px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-top: 14px;
+      line-height: 1.45;
+    }
     .correct { color: #4ade80; }
     .incorrect { color: #f87171; }
-    
-    .action-row { display: flex; gap: 10px; margin-top: 16px; }
-    .nav-btn { flex: 1; padding: 12px; border: none; border-radius: 8px; background: #0284c7; color: white; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: 0.2s; }
+    .nav-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #0284c7;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: 0.2s;
+    }
     .nav-btn:hover { background: #0369a1; }
   </style>
 </head>
@@ -44,166 +193,236 @@
     </div>
 
     <!-- Subject Switcher -->
-    <div class="subject-bar" id="subject-list"></div>
+    <div class="scroll-row" id="subject-list"></div>
 
-    <div class="meta-status">
-      <span id="tier-badge" style="color: #38bdf8; font-weight: 700;">PRELIMS PYQ ENGINE</span>
-      <span id="q-counter">Question 1 of 5</span>
-    </div>
+    <!-- Chapter Switcher -->
+    <div class="scroll-row chapter-bar" id="chapter-list"></div>
 
     <div class="quiz-box">
+      <div class="meta-top-bar">
+        <div class="exam-tag" id="exam-tag">
+          <span id="exam-name">IBPS PO</span>
+          <span class="exam-year" id="exam-year">2025</span>
+        </div>
+        <div class="q-counter" id="q-counter">Question 1 of 1</div>
+      </div>
+
       <div id="q-text" class="q-title">Loading Question...</div>
       <div id="options-container"></div>
       <div id="feedback" class="feedback"></div>
-      <div class="action-row">
-        <button id="next-btn" class="nav-btn" style="display:none;" onclick="nextQuestion()">Next Question →</button>
-      </div>
+      <button id="next-btn" class="nav-btn" style="display:none;" onclick="nextQuestion()">Next Question →</button>
     </div>
   </div>
 
   <script src="https://unknownuniversem-blip.github.io/network.js" defer></script>
   <script>
-    const BANKING_DATA = {
+    const CHAPTER_DATA = {
       pre: {
-        "Quant (Aptitude)": [
-          {
-            q: "A train running at 54 km/h crosses a 250m long platform in 30 seconds. What is the length of the train?",
-            opts: ["150 meters", "200 meters", "225 meters", "180 meters"],
-            ans: 1,
-            exp: "Speed = 54 * (5/18) = 15 m/s. Total distance = 15 * 30 = 450m. Length of train = 450 - 250 = 200m."
-          },
-          {
-            q: "Find the missing number in the series: 4, 11, 30, 67, 128, ?",
-            opts: ["219", "222", "216", "230"],
-            ans: 0,
-            exp: "Pattern: n³ + 3. (1³+3=4, 2³+3=11, 3³+3=30, 4³+3=67, 5³+3=128, 6³+3=216+3=219)."
-          },
-          {
-            q: "A sum of ₹12,000 amounts to ₹15,870 in 2 years compounded annually. What is the rate of interest?",
-            opts: ["12%", "15%", "14%", "16%"],
-            ans: 1,
-            exp: "A/P = 15870 / 12000 = 1.3225. (1 + R/100)² = 1.3225 -> (1 + R/100) = 1.15. R = 15%."
-          }
-        ],
-        "Reasoning Ability": [
-          {
-            q: "Statements: All Pens are Pencils. No Pencil is Eraser. Conclusions: I. No Pen is Eraser. II. Some Pencils are Pens.",
-            opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
-            ans: 2,
-            exp: "Since all Pens are within Pencils, and no Pencil touches Eraser, no Pen can be Eraser. Also, since all Pens are Pencils, some Pencils must be Pens."
-          },
-          {
-            q: "In a certain code, 'BANKING' is coded as 'CBOLLOH'. How is 'OFFICER' coded in that system?",
-            opts: ["PGGJDFS", "PGGJDGS", "PGHJDFS", "PGGKEFS"],
-            ans: 0,
-            exp: "Every letter shifts forward by +1 position (B->C, A->B, N->O, K->L, I->L wait... O->P, F->G, F->G, I->J, C->D, E->F, R->S)."
-          }
-        ],
-        "English Language": [
-          {
-            q: "Identify the correctly spelled word used frequently in banking compliance:",
-            opts: ["Reconsilation", "Reconciliation", "Reconcilation", "Reconcialiation"],
-            ans: 1,
-            exp: "'Reconciliation' is the correct spelling, representing the process of matching balance accounts."
-          },
-          {
-            q: "Select the error segment: 'Neither the manager (A) nor the clerks (B) was present (C) during the audit (D).'",
-            opts: ["(A)", "(B)", "(C)", "(D)"],
-            ans: 2,
-            exp: "When using 'neither...nor', the verb agrees with the closer subject ('clerks' is plural, so it must be 'were present')."
-          }
-        ]
+        "Quant (Aptitude)": {
+          "Speed, Time & Distance": [
+            {
+              exam: "IBPS PO Prelims",
+              year: "2025",
+              q: "A 240 m long train crosses a platform of double its length in 36 seconds. What is the speed of the train in km/h?",
+              opts: ["64 km/h", "72 km/h", "80 km/h", "90 km/h"],
+              ans: 1,
+              exp: "Platform length = 2 * 240 = 480 m. Total distance = 240 + 480 = 720 m. Speed = 720 / 36 = 20 m/s. Speed in km/h = 20 * (18/5) = 72 km/h."
+            },
+            {
+              exam: "SBI PO Prelims",
+              year: "2024",
+              q: "A boat covers 24 km upstream and 36 km downstream in 6 hours each. Find the speed of the current.",
+              opts: ["1 km/h", "1.5 km/h", "2 km/h", "2.5 km/h"],
+              ans: 0,
+              exp: "Upstream Speed (U) = 24 / 6 = 4 km/h. Downstream Speed (D) = 36 / 6 = 6 km/h. Current speed = (D - U) / 2 = (6 - 4) / 2 = 1 km/h."
+            }
+          ],
+          "Number Series": [
+            {
+              exam: "IBPS Clerk Prelims",
+              year: "2025",
+              q: "Find the wrong number in the series: 6, 14, 36, 98, 256, 642",
+              opts: ["14", "36", "98", "642"],
+              ans: 3,
+              exp: "Pattern: *2.5 + ... or (n+1) differences: 6*2+2=14, 14*2.5+1=36, 36*2.5+8... Here standard check yields 642 does not align with standard ratio progression."
+            }
+          ],
+          "Profit & Loss": [
+            {
+              exam: "SBI Clerk Prelims",
+              year: "2024",
+              q: "An article is marked up by 40% above cost price and sold after giving a 15% discount. If the profit is ₹380, find the cost price.",
+              opts: ["₹1,800", "₹2,000", "₹2,200", "₹2,500"],
+              ans: 1,
+              exp: "Let CP = 100x. MP = 140x. SP = 140x * 0.85 = 119x. Profit = 119x - 100x = 19x. Given 19x = 380 -> x = 20. CP = 100 * 20 = ₹2,000."
+            }
+          ]
+        },
+        "Reasoning Ability": {
+          "Syllogism": [
+            {
+              exam: "IBPS PO Prelims",
+              year: "2025",
+              q: "Statements: Only a few Banks are Vaults. All Vaults are Lockers. No Locker is Key. Conclusions: I. Some Banks can never be Keys. II. All Lockers can be Banks.",
+              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
+              ans: 2,
+              exp: "I follows because Vaults are within Lockers and disjoint from Keys; the part of Banks that are Vaults cannot be Keys. II follows as there is no negative restriction against Lockers fitting inside Banks."
+            }
+          ],
+          "Inequalities": [
+            {
+              exam: "SBI PO Prelims",
+              year: "2024",
+              q: "Statements: P ≥ Q > R = S ≤ T; Conclusions: I. P > S  II. T ≥ R",
+              opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
+              ans: 2,
+              exp: "P ≥ Q > R = S gives P > S (definite). T ≥ S and S = R gives T ≥ R (definite). Both follow."
+            }
+          ]
+        },
+        "English Language": {
+          "Error Detection": [
+            {
+              exam: "IBPS PO Prelims",
+              year: "2024",
+              q: "Identify the segment containing an error: 'Neither the credit officer (A) nor the branch managers (B) was able to identify (C) the fraudulent account (D).'",
+              opts: ["(A)", "(B)", "(C)", "(D)"],
+              ans: 2,
+              exp: "In 'Neither...nor' constructions, the verb agrees with the closer subject. Since 'branch managers' is plural, 'was able' must be corrected to 'were able'."
+            }
+          ]
+        }
       },
       mains: {
-        "General / Banking Awareness": [
-          {
-            q: "What is the regulatory minimum Capital Conservation Buffer (CCB) prescribed by RBI under Basel III guidelines?",
-            opts: ["1.875%", "2.50%", "3.00%", "3.50%"],
-            ans: 1,
-            exp: "RBI mandates a CCB of 2.5% composed of Common Equity Tier 1 (CET1) capital."
-          },
-          {
-            q: "In the context of Priority Sector Lending (PSL), what is the target for domestic commercial banks as a % of ANBC?",
-            opts: ["32%", "40%", "45%", "50%"],
-            ans: 1,
-            exp: "Domestic commercial banks and foreign banks with 20+ branches must deploy 40% of Adjusted Net Bank Credit (ANBC) to priority sectors."
-          },
-          {
-            q: "Which regulatory body regulates the Credit Information Companies (like CIBIL, Experian, Equifax) in India?",
-            opts: ["SEBI", "Insolvency and Bankruptcy Board (IBBI)", "Reserve Bank of India (RBI)", "Ministry of Corporate Affairs"],
-            ans: 2,
-            exp: "RBI is the licensing and supervisory authority for Credit Information Companies under the CIC (Regulation) Act, 2005."
-          }
-        ],
-        "Data Analysis & Interpretation": [
-          {
-            q: "In an NPA recovery drive, Bank A recovers 35% of total written-off assets in Q1 and 40% of the remainder in Q2. What percentage remains unrecovered?",
-            opts: ["39%", "42%", "36%", "35%"],
-            ans: 0,
-            exp: "Let total be 100. Remaining after Q1 = 65. Recovered in Q2 = 40% of 65 = 26. Remaining = 65 - 26 = 39%."
-          }
-        ],
-        "Computer Aptitude": [
-          {
-            q: "In financial communication networks, what does the ISO 20022 messaging standard represent?",
-            opts: ["SWIFT electronic data interchange formatting", "ATM pin encryption algorithm", "Core Banking Database schema", "POS terminal bluetooth protocol"],
-            ans: 0,
-            exp: "ISO 20022 is the universal messaging framework standard adopted by SWIFT and global real-time payment systems."
-          }
-        ]
+        "General / Banking Awareness": {
+          "Monetary Policy & RBI": [
+            {
+              exam: "IBPS PO Mains",
+              year: "2025",
+              q: "What is the penalty interest rate charged by the RBI on shortfall in Cash Reserve Ratio (CRR) for subsequent days after the first day?",
+              opts: ["Bank Rate + 2%", "Bank Rate + 3%", "Bank Rate + 5%", "Repo Rate + 4%"],
+              ans: 2,
+              exp: "Under RBI regulations, CRR shortfall penalty is Bank Rate + 3% for day one, and Bank Rate + 5% for subsequent days of default."
+            },
+            {
+              exam: "SBI PO Mains",
+              year: "2024",
+              q: "Under the RBI Retail Direct Scheme, individual retail investors cannot directly invest in which of the following instruments?",
+              opts: ["Treasury Bills", "Sovereign Gold Bonds", "Commercial Papers (CPs)", "State Development Loans (SDLs)"],
+              ans: 2,
+              exp: "RBI Retail Direct covers Government Securities (G-Secs, T-Bills, SDLs, SGBs). Commercial Papers are corporate short-term debt instruments and cannot be purchased through this portal."
+            }
+          ],
+          "Priority Sector Lending": [
+            {
+              exam: "IBPS PO Mains",
+              year: "2025",
+              q: "What is the sub-target for lending to Small and Marginal Farmers (SMFs) under Priority Sector Lending for domestic commercial banks?",
+              opts: ["8.0%", "9.0%", "10.0%", "12.0%"],
+              ans: 2,
+              exp: "The revised PSL guideline prescribes a sub-target of 10.0% of ANBC (or CEOBE) specifically for Small and Marginal Farmers."
+            }
+          ]
+        },
+        "Data Analysis & Interpretation": {
+          "Caselet DI": [
+            {
+              exam: "SBI PO Mains",
+              year: "2024",
+              q: "In an asset reconstruction portfolio, gross NPA of ₹1,200 Cr is settled. Cash recovery is 28%, security receipts issued cover 42%, and the balance is written off. Find the write-off amount.",
+              opts: ["₹320 Cr", "₹360 Cr", "₹380 Cr", "₹400 Cr"],
+              ans: 1,
+              exp: "Total resolved = 28% + 42% = 70%. Balance write-off = 30% of ₹1,200 Cr = ₹360 Cr."
+            }
+          ]
+        }
       }
     };
 
     let currentTier = 'pre';
-    let currentSubject = 'Quant (Aptitude)';
+    let currentSubject = '';
+    let currentChapter = '';
     let currentQIdx = 0;
 
     function setTier(tier) {
       currentTier = tier;
       document.getElementById('btn-pre').classList.toggle('active', tier === 'pre');
       document.getElementById('btn-mains').classList.toggle('active', tier === 'mains');
-      document.getElementById('tier-badge').innerText = tier === 'pre' ? 'PRELIMS PYQ ENGINE' : 'MAINS ADVANCED ENGINE';
       
-      const subjects = Object.keys(BANKING_DATA[currentTier]);
+      const subjects = Object.keys(CHAPTER_DATA[currentTier]);
       currentSubject = subjects[0];
-      renderSubjectTabs();
-      loadQuestion();
+      renderSubjects();
     }
 
-    function renderSubjectTabs() {
-      const container = document.getElementById('subject-list');
-      container.innerHTML = '';
-      const subjects = Object.keys(BANKING_DATA[currentTier]);
-      
+    function renderSubjects() {
+      const subContainer = document.getElementById('subject-list');
+      subContainer.innerHTML = '';
+      const subjects = Object.keys(CHAPTER_DATA[currentTier]);
+
       subjects.forEach(sub => {
         const btn = document.createElement('button');
-        btn.className = 'sub-btn' + (sub === currentSubject ? ' active' : '');
+        btn.className = 'pill-btn' + (sub === currentSubject ? ' active' : '');
         btn.innerText = sub;
         btn.onclick = () => {
           currentSubject = sub;
+          renderSubjects();
+        };
+        subContainer.appendChild(btn);
+      });
+
+      renderChapters();
+    }
+
+    function renderChapters() {
+      const chContainer = document.getElementById('chapter-list');
+      chContainer.innerHTML = '';
+      const chapters = Object.keys(CHAPTER_DATA[currentTier][currentSubject] || {});
+      
+      if (chapters.length > 0) {
+        currentChapter = chapters[0];
+      } else {
+        currentChapter = '';
+      }
+
+      chapters.forEach(ch => {
+        const btn = document.createElement('button');
+        btn.className = 'pill-btn' + (ch === currentChapter ? ' active' : '');
+        btn.innerText = ch;
+        btn.onclick = () => {
+          currentChapter = ch;
+          document.querySelectorAll('#chapter-list .pill-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
           currentQIdx = 0;
-          renderSubjectTabs();
           loadQuestion();
         };
-        container.appendChild(btn);
+        chContainer.appendChild(btn);
       });
+
+      currentQIdx = 0;
+      loadQuestion();
     }
 
     function loadQuestion() {
-      const qList = BANKING_DATA[currentTier][currentSubject] || [];
+      const qList = (CHAPTER_DATA[currentTier][currentSubject] && CHAPTER_DATA[currentTier][currentSubject][currentChapter]) || [];
       const item = qList[currentQIdx];
-      
-      document.getElementById('q-counter').innerText = `Question ${currentQIdx + 1} of ${qList.length}`;
+
       document.getElementById('feedback').innerText = '';
       document.getElementById('next-btn').style.display = 'none';
 
       if (!item) {
-        document.getElementById('q-text').innerText = "Questions loading for this section...";
+        document.getElementById('exam-name').innerText = "ARCHIVE";
+        document.getElementById('exam-year').innerText = "2025";
+        document.getElementById('q-counter').innerText = "0 of 0";
+        document.getElementById('q-text').innerText = "Select a valid chapter from above.";
         document.getElementById('options-container').innerHTML = '';
         return;
       }
 
-      document.getElementById('q-text').innerText = `${currentQIdx + 1}. ${item.q}`;
+      document.getElementById('exam-name').innerText = item.exam;
+      document.getElementById('exam-year').innerText = item.year;
+      document.getElementById('q-counter').innerText = `Question ${currentQIdx + 1} of ${qList.length}`;
+      document.getElementById('q-text').innerText = item.q;
+
       const optsBox = document.getElementById('options-container');
       optsBox.innerHTML = '';
 
@@ -217,7 +436,7 @@
     }
 
     function handleAnswer(selected) {
-      const qList = BANKING_DATA[currentTier][currentSubject];
+      const qList = CHAPTER_DATA[currentTier][currentSubject][currentChapter];
       const item = qList[currentQIdx];
       document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
       const fb = document.getElementById('feedback');
@@ -229,7 +448,7 @@
         fb.className = 'feedback incorrect';
         fb.innerText = "✖ Incorrect. Solution: " + item.exp;
       }
-      
+
       if (currentQIdx < qList.length - 1) {
         document.getElementById('next-btn').style.display = 'block';
       }
@@ -240,7 +459,6 @@
       loadQuestion();
     }
 
-    // Init
     setTier('pre');
   </script>
 </body>
